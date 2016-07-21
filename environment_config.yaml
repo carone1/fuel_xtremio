@@ -1,8 +1,8 @@
 attributes:
   emc_username:
     value: "username"
-    label: "EMC VNX username"
-    description: "EMC VNX username."
+    label: "EMC XtremIO XMS username"
+    description: "EMC XtremIO XMS username."
     weight: 75
     type: "text"
     regex:
@@ -10,34 +10,25 @@ attributes:
       error: "Username field cannot be empty"
   emc_password:
     value: "password"
-    label: "EMC VNX password"
-    description: "EMC VNX password."
+    label: "EMC XtremIO XMS password"
+    description: "EMC XtremIO XMS password."
     weight: 80
     type: "password"
     regex:
       source: '\S'
       error: "Password field cannot be empty"
-  emc_sp_a_ip:
+  emc_xms_ip:
     value: ""
-    label: "EMC VNX SP A IP"
-    description: "EMC VNX Service Processor A IP address."
+    label: "EMC XtremIO XMS IP"
+    description: "EMC XtremIO XMS IP address."
     weight: 90
     type: "text"
     regex:
       source: '^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
       error: "Specify valid IPv4 address"
-  emc_sp_b_ip:
+  emc_cluster_name:
     value: ""
-    label: "EMC VNX SP B IP"
-    description: "EMC VNX Service Processor B IP address."
-    weight: 90
-    type: "text"
-    regex:
-      source: '^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
-      error: "Specify valid IPv4 address"
-  emc_pool_name:
-    value: ""
-    label: "EMC VNX pool name"
-    description: "EMC VNX pool name (optional)"
+    label: "EMC XtremIO cluster name"
+    description: "EMC XtremIO cluster name (optional)"
     weight: 95
     type: "text"

@@ -1,5 +1,5 @@
 #
-#    Copyright 2015 Mirantis, Inc.
+#    Copyright 2016 EMC, Inc.
 #
 #    Licensed under the Apache License, Version 2.0 (the "License"); you may
 #    not use this file except in compliance with the License. You may obtain
@@ -13,64 +13,64 @@
 #    License for the specific language governing permissions and limitations
 #    under the License.
 #
-class plugin_emc_vnx::common {
+class plugin_emc_xtremio::common {
 
-  include plugin_emc_vnx::params
+  include plugin_emc_xtremio::params
 
-  package {$plugin_emc_vnx::params::iscsi_package_name:
+  package {$plugin_emc_xtremio::params::iscsi_package_name:
     ensure => 'installed'
   }
   case $::osfamily {
     'Debian': {
-      service {$plugin_emc_vnx::params::iscsi_service_name:
+      service {$plugin_emc_xtremio::params::iscsi_service_name:
         ensure     => 'running',
         enable     => true,
         hasrestart => true,
-        require    => Package[$plugin_emc_vnx::params::iscsi_package_name],
+        require    => Package[$plugin_emc_xtremio::params::iscsi_package_name],
       }
       file {'iscsid.conf':
         path    => '/etc/iscsi/iscsid.conf',
         mode    => '0644',
         owner   => root,
         group   => root,
-        source  => 'puppet:///modules/plugin_emc_vnx/iscsid.conf',
-        require => Package[$plugin_emc_vnx::params::iscsi_package_name],
-        notify  => Service[$plugin_emc_vnx::params::iscsi_service_name],
+        source  => 'puppet:///modules/plugin_emc_xtremio/iscsid.conf',
+        require => Package[$plugin_emc_xtremio::params::iscsi_package_name],
+        notify  => Service[$plugin_emc_xtremio::params::iscsi_service_name],
       }
     }
-    'RedHat': {
-      file {'iscsid.conf':
-        path    => '/etc/iscsi/iscsid.conf',
-        mode    => '0644',
-        owner   => root,
-        group   => root,
-        source  => 'puppet:///modules/plugin_emc_vnx/iscsid.conf-centos',
-        require => Package[$plugin_emc_vnx::params::iscsi_package_name],
-      }
-    }
+    #'RedHat': {
+    #  file {'iscsid.conf':
+    #    path    => '/etc/iscsi/iscsid.conf',
+    #    mode    => '0644',
+    #    owner   => root,
+    #    group   => root,
+    #    source  => 'puppet:///modules/plugin_emc_vnx/iscsid.conf-centos',
+    #    require => Package[$plugin_emc_vnx::params::iscsi_package_name],
+    #  }
+    #}
     default: {
       fail("unsuported osfamily ${::osfamily}, currently Debian and Redhat are the only supported platforms")
     }
   }
-  package {$plugin_emc_vnx::params::multipath_package_name:
+  package {$plugin_emc_xtremio::params::multipath_package_name:
     ensure => 'installed'
   }
-  service {$plugin_emc_vnx::params::multipath_service_name:
+  service {$plugin_emc_xtremio::params::multipath_service_name:
     ensure     => 'running',
     enable     => true,
     hasrestart => true,
     hasstatus  => false,
     status     => 'pgrep multipathd',
-    require    => Package[$plugin_emc_vnx::params::multipath_package_name],
+    require    => Package[$plugin_emc_xtremio::params::multipath_package_name],
   }
   file {'multipath.conf':
     path    => '/etc/multipath.conf',
     mode    => '0644',
     owner   => root,
     group   => root,
-    source  => 'puppet:///modules/plugin_emc_vnx/multipath.conf',
-    require => Package[$plugin_emc_vnx::params::multipath_package_name],
-    notify  => Service[$plugin_emc_vnx::params::multipath_service_name],
+    source  => 'puppet:///modules/plugin_emc_xtremio/multipath.conf',
+    require => Package[$plugin_emc_xtremio::params::multipath_package_name],
+    notify  => Service[$plugin_emc_xtremio::params::multipath_service_name],
   }
 
 }

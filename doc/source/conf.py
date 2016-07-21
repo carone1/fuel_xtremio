@@ -4,8 +4,8 @@ from sphinx import __version__ as sphinx_version
 source_suffix = '.rst'
 master_doc = 'index'
 
-project = u'EMC VNX plugin for Fuel'
-copyright = u'2016, Mirantis Inc.'
+project = u'EMC XtremIO plugin for Fuel'
+copyright = u'2016, EMC Inc.'
 
 version = '3.0'
 release = '3.0-3.0.0-1'
@@ -13,9 +13,9 @@ release = '3.0-3.0.0-1'
 pygments_style = 'sphinx'
 
 latex_documents = [
-  ('index','fuel-plugin-external-emc-doc.tex',
-   u'EMC VNX plugin for Fuel Documentation',
-   u'Mirantis Inc.', 'manual')
+  ('index','fuel-plugin-external-emc-xtremio-doc.tex',
+   u'EMC XtremIO plugin for Fuel Documentation',
+   u'EMC Inc.', 'manual')
 ]
 
 # Configuration for the latex/pdf docs.

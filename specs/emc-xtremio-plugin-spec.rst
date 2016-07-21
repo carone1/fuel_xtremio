@@ -4,24 +4,24 @@
  http://www.apache.org/licenses/LICENSE-2.0
 
 ==================================================
-Fuel plugin for EMC VNX arrays as a Cinder backend
+Fuel plugin for EMC XtremIO arrays as a Cinder backend
 ==================================================
 
-EMC VNX plugin for Fuel extends Mirantis OpenStack functionality by adding
-support for EMC VNX arrays in Cinder using iSCSI protocol.
+EMC XtremIO plugin for Fuel extends Mirantis OpenStack functionality by adding
+support for EMC XtremIO arrays in Cinder using iSCSI protocol.
 It replaces Cinder LVM driver which is the default volume backend that uses
 local volumes managed by LVM.
 
 Problem description
 ===================
 
-Currently, Fuel has no support for EMC VNX arrays as block storage for
-OpenStack environments. EMC VNX plugin aims to provide support for it.
+Currently, Fuel has no support for EMC XtremIO arrays as block storage for
+OpenStack environments. EMC XtremIO plugin aims to provide support for it.
 
 Proposed change
 ===============
 
-Implement a Fuel plugin that will install and configure the EMC VNX driver for
+Implement a Fuel plugin that will install and configure the EMC XtremIO driver for
 Cinder on all Controller nodes. Cinder volume service will be managed
 by Pacemaker/Corosync to provide HA. Having all Cinder services run
 on controllers no additional Cinder node is required in environment.
@@ -69,15 +69,12 @@ None
 Performance Impact
 ------------------
 
-The EMC VNX driver could be slow when it comes to EMC VNX array configuration.
-All volume management commands (creating/deleting/attaching etc.) can take
-longer than usual. For example, creation a volume from an image
-(even very small like CirrOS) may take over 60 seconds.
+None
 
 Other deployer impact
 ---------------------
 
-The deployer has to preconfigure an EMC VNX array before it can be used with
+The deployer has to preconfigure an EMC XtremIO array before it can be used with
 the plugin.
 
 Developer impact
@@ -88,9 +85,8 @@ None
 Implementation
 ==============
 
-Plugin delivers packages with multipath daemon and EMC NaviSecCli (command line
-toolkit for EMC VNX arrays management) because they are not included in
-Mirantis OpenStack.
+Plugin delivers packages with multipath daemoni.
+
 Plugin has three tasks. Each task per role. They are run in the following order:
 
 * The first task installs and configures cinder-volume on Primary Controller.
@@ -110,10 +106,7 @@ Finally, plugin enables multipath in Cinder and Nova config files.
 Assignee(s)
 -----------
 
-| Dmitry Klenov <dklenov@mirantis.com> (PM)
-| Piotr Misiak <pmisiak@mirantis.com> (developer)
-| Szymon Bańka <sbanka@mirantis.com> (developer)
-| Dmitry Kalashnik <dkalashnik@mirantis.com> (QA engineer)
+| Eric Caron <eric.caron@emc.com> (developer)
 
 Work Items
 ----------
