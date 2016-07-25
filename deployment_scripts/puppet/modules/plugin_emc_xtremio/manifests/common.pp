@@ -38,16 +38,6 @@ class plugin_emc_xtremio::common {
         notify  => Service[$plugin_emc_xtremio::params::iscsi_service_name],
       }
     }
-    #'RedHat': {
-    #  file {'iscsid.conf':
-    #    path    => '/etc/iscsi/iscsid.conf',
-    #    mode    => '0644',
-    #    owner   => root,
-    #    group   => root,
-    #    source  => 'puppet:///modules/plugin_emc_vnx/iscsid.conf-centos',
-    #    require => Package[$plugin_emc_vnx::params::iscsi_package_name],
-    #  }
-    #}
     default: {
       fail("unsuported osfamily ${::osfamily}, currently Debian and Redhat are the only supported platforms")
     }

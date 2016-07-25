@@ -20,9 +20,10 @@ class plugin_emc_xtremio::controller {
 
   $plugin_settings = hiera('emc_xtremio')
 
-  #package {$::plugin_emc_vnx::params::navicli_package_name:
-  #  ensure => present,
-  #}
+  $volume_type = 'XtremIO';
+  $sc1         = 'XtremIO_SC1';
+  $sc2         = 'XtremIO_SC2';
+  $default     = 'DEFAULT';
 
   if $::cinder::params::volume_package {
     package { $::cinder::params::volume_package:
@@ -31,44 +32,40 @@ class plugin_emc_xtremio::controller {
     Package[$::cinder::params::volume_package] -> Cinder_config<||>
   }
 
-  #cinder_config {
-  #  'DEFAULT/volume_driver':                    value => 'cinder.volume.drivers.emc.emc_cli_iscsi.EMCCLIISCSIDriver';
-  #  'DEFAULT/san_ip':                           value => $plugin_settings['emc_sp_a_ip'];
-  #  'DEFAULT/san_secondary_ip':                 value => $plugin_settings['emc_sp_b_ip'];
-  #  'DEFAULT/san_login':                        value => $plugin_settings['emc_username'];
-  #  'DEFAULT/san_password':                     value => $plugin_settings['emc_password'];
-  #  'DEFAULT/storage_vnx_authentication_type':  value => 'global';
-  #  'DEFAULT/destroy_empty_storage_group':      value => 'False';
-  #  'DEFAULT/attach_detach_batch_interval':     value => '-1';
-  #  'DEFAULT/naviseccli_path':                  value => '/opt/Navisphere/bin/naviseccli';
-  #  'DEFAULT/initiator_auto_registration':      value => 'True';
-  #  'DEFAULT/default_timeout':                  value => '10';
-  #  'DEFAULT/use_multipath_for_image_xfer':     value => 'True';
-  #  'DEFAULT/host':                             value => 'cinder';
-  #}
-
-  #if $plugin_settings['emc_pool_name'] {
-  #  cinder_config {
-  #    'DEFAULT/storage_vnx_pool_name':          value => $plugin_settings['emc_pool_name'];
-  #  }
-  #}
-
-
+  # DEFAULT Section
   cinder_config {
-    'DEFAULT/volume_driver':                    value => 'cinder.volume.drivers.emc.xtremio.XtremIOISCSIDriver';
-    'DEFAULT/san_ip':                           value => $plugin_settings['emc_xms_ip'];
-    'DEFAULT/san_login':                        value => $plugin_settings['emc_username'];
-    'DEFAULT/san_password':                     value => $plugin_settings['emc_password'];
-    'DEFAULT/use_multipath_for_image_xfer':     value => 'True';
-    'DEFAULT/host':                             value => 'cinder';
+    "${default}/enabled_backends":                value => "${sc1},${sc2}";
   }
 
+  # SC1 Section
+  cinder_config {
+    "${sc1}/san_ip":                           value => $plugin_settings['emc_sc1_ip'];
+    "${sc1}/san_login":                        value => $plugin_settings['emc_username'];
+    "${sc1}/san_password":                     value => $plugin_settings['emc_password'];
+    "${sc1}/use_multipath_for_image_xfer":     value => 'True';
+    "${sc1}/host":                             value => 'cinder';
+    "${sc1}/volume_driver":                    value => 'cinder.volume.drivers.emc.xtremio.XtremIOISCSIDriver';
+    "${sc1}/volume_backend_name":              value => ${volume_type};
+  }
+
+  # SC2 Section
+  cinder_config {
+    "${sc2}/san_ip":                           value => $plugin_settings['emc_sc2_ip'];
+    "${sc2}/san_login":                        value => $plugin_settings['emc_username'];
+    "${sc2}/san_password":                     value => $plugin_settings['emc_password'];
+    "${sc2}/use_multipath_for_image_xfer":     value => 'True';
+    "${sc2}/host":                             value => 'cinder';
+    "${sc2}/volume_driver":                    value => 'cinder.volume.drivers.emc.xtremio.XtremIOISCSIDriver';
+    "${sc2}/volume_backend_name":              value => ${volume_type};
+  }
+
+  # Cluster name
   if $plugin_settings['emc_cluster_name'] {
-    cinder_config {
-      'DEFAULT/xtremio_cluster_name':           value => $plugin_settings['emc_cluster_name'];
-    }
+     cinder_config {
+       '${sc1}/xtremio_cluster_name':           value => $plugin_settings['emc_cluster_name'];
+       '${sc2}/xtremio_cluster_name':           value => $plugin_settings['emc_cluster_name']; 
+     }
   }
-
 
 
   Cinder_config<||> ~> Service['cinder_volume']
@@ -98,7 +95,20 @@ class plugin_emc_xtremio::controller {
     hasstatus  => true,
     hasrestart => true,
     provider   => 'pacemaker',
-    #require    => Package[$::plugin_emc_vnx::params::navicli_package_name],
   }
+
+
+  exec { "Create Cinder volume type \'${volume_type}\'":
+    command => "bash -c 'source /root/openrc; cinder type-create ${volume_type}'",
+    path    => ['/usr/bin', '/bin'],
+    unless  => "bash -c 'source /root/openrc; cinder type-list | grep -q -w \" ${volume_type} \"'",
+  } 
+
+  exec { "Create Cinder volume type extra specs for \'${volume_type}\'":
+    command => "bash -c 'source /root/openrc; cinder type-key ${volume_type} set volume_backend_name=${volume_type}'",
+    path    => ['/usr/bin', '/bin'],
+    onlyif  => "bash -c 'source /root/openrc; cinder type-list | grep -q -w \" ${volume_type} \"'",
+  }
+
 
 }

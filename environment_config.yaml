@@ -1,7 +1,7 @@
 attributes:
   emc_username:
     value: "username"
-    label: "EMC XtremIO XMS username"
+    label: "XMS username"
     description: "EMC XtremIO XMS username."
     weight: 75
     type: "text"
@@ -10,17 +10,26 @@ attributes:
       error: "Username field cannot be empty"
   emc_password:
     value: "password"
-    label: "EMC XtremIO XMS password"
+    label: "XMS password"
     description: "EMC XtremIO XMS password."
     weight: 80
     type: "password"
     regex:
       source: '\S'
       error: "Password field cannot be empty"
-  emc_xms_ip:
+  emc_sc1_ip:
     value: ""
-    label: "EMC XtremIO XMS IP"
-    description: "EMC XtremIO XMS IP address."
+    label: "SC1 IP"
+    description: "EMC XtremIO SC1 IP address."
+    weight: 90
+    type: "text"
+    regex:
+      source: '^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
+      error: "Specify valid IPv4 address"
+  emc_sc2_ip:
+    value: ""
+    label: "SC2 IP"
+    description: "EMC XtremIO SC2 IP address."
     weight: 90
     type: "text"
     regex:
