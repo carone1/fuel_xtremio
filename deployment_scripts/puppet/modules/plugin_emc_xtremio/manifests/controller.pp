@@ -20,11 +20,6 @@ class plugin_emc_xtremio::controller {
 
   $plugin_settings = hiera('emc_xtremio')
 
-  $volume_type = 'XtremIO';
-  $sc1         = 'XtremIO_SC1';
-  $sc2         = 'XtremIO_SC2';
-  $default     = 'DEFAULT';
-
   if $::cinder::params::volume_package {
     package { $::cinder::params::volume_package:
       ensure => present,
@@ -32,39 +27,31 @@ class plugin_emc_xtremio::controller {
     Package[$::cinder::params::volume_package] -> Cinder_config<||>
   }
 
+  $volume_type      = 'XtremIO'
+  $xtrem_io_section = 'XtremIO'
+  $default_section  = 'DEFAULT'
+
   # DEFAULT Section
   cinder_config {
-    "${default}/enabled_backends":                value => "${sc1},${sc2}";
+    "${default_section}/enabled_backends":     value => $xtrem_io_section;
   }
 
-  # SC1 Section
+  # XtremIO Section
   cinder_config {
-    "${sc1}/san_ip":                           value => $plugin_settings['emc_sc1_ip'];
-    "${sc1}/san_login":                        value => $plugin_settings['emc_username'];
-    "${sc1}/san_password":                     value => $plugin_settings['emc_password'];
-    "${sc1}/use_multipath_for_image_xfer":     value => 'True';
-    "${sc1}/host":                             value => 'cinder';
-    "${sc1}/volume_driver":                    value => 'cinder.volume.drivers.emc.xtremio.XtremIOISCSIDriver';
-    "${sc1}/volume_backend_name":              value => ${volume_type};
-  }
-
-  # SC2 Section
-  cinder_config {
-    "${sc2}/san_ip":                           value => $plugin_settings['emc_sc2_ip'];
-    "${sc2}/san_login":                        value => $plugin_settings['emc_username'];
-    "${sc2}/san_password":                     value => $plugin_settings['emc_password'];
-    "${sc2}/use_multipath_for_image_xfer":     value => 'True';
-    "${sc2}/host":                             value => 'cinder';
-    "${sc2}/volume_driver":                    value => 'cinder.volume.drivers.emc.xtremio.XtremIOISCSIDriver';
-    "${sc2}/volume_backend_name":              value => ${volume_type};
+    "${xtrem_io_section}/san_ip":                           value => $plugin_settings['emc_xms_ip'];
+    "${xtrem_io_section}/san_login":                        value => $plugin_settings['emc_username'];
+    "${xtrem_io_section}/san_password":                     value => $plugin_settings['emc_password'];
+    "${xtrem_io_section}/use_multipath_for_image_xfer":     value => 'True';
+    "${xtrem_io_section}/host":                             value => 'cinder';
+    "${xtrem_io_section}/volume_driver":                    value => 'cinder.volume.drivers.emc.xtremio.XtremIOISCSIDriver';
+    "${xtrem_io_section}/volume_backend_name":              value => $volume_type;
   }
 
   # Cluster name
   if $plugin_settings['emc_cluster_name'] {
-     cinder_config {
-       '${sc1}/xtremio_cluster_name':           value => $plugin_settings['emc_cluster_name'];
-       '${sc2}/xtremio_cluster_name':           value => $plugin_settings['emc_cluster_name']; 
-     }
+    cinder_config {
+      "${xtrem_io_section}/xtremio_cluster_name":           value => $plugin_settings['emc_cluster_name'];
+    }
   }
 
 
@@ -102,7 +89,7 @@ class plugin_emc_xtremio::controller {
     command => "bash -c 'source /root/openrc; cinder type-create ${volume_type}'",
     path    => ['/usr/bin', '/bin'],
     unless  => "bash -c 'source /root/openrc; cinder type-list | grep -q -w \" ${volume_type} \"'",
-  } 
+  } ->
 
   exec { "Create Cinder volume type extra specs for \'${volume_type}\'":
     command => "bash -c 'source /root/openrc; cinder type-key ${volume_type} set volume_backend_name=${volume_type}'",

@@ -29,16 +29,16 @@ class plugin_emc_xtremio::primary_controller {
       'multibackend'     => true,
     },
     operations      => {
-      'monitor'  => {
+      'monitor' => {
         'interval' => '20',
         'timeout'  => '10'
       }
       ,
-      'start'    => {
+      'start'   => {
         'timeout' => '60'
       }
       ,
-      'stop'     => {
+      'stop'    => {
         'timeout' => '60'
       }
     },
