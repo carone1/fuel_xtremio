@@ -2,8 +2,8 @@
 Key terms, acronyms and abbreviations
 =====================================
 
-EMC VNX
-    Unified, hybrid-flash storage used for virtual applications and
+EMC XtremIO
+    All-flash storage used for virtual applications and
     cloud-environments.
 
 Cinder

@@ -13,7 +13,7 @@ release = '3.0-3.0.0-1'
 pygments_style = 'sphinx'
 
 latex_documents = [
-  ('index','fuel-plugin-external-emc-xtremio-doc.tex',
+  ('index','fuel-plugin-emc-xtremio-doc.tex',
    u'EMC XtremIO plugin for Fuel Documentation',
    u'EMC Inc.', 'manual')
 ]

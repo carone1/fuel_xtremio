@@ -5,78 +5,72 @@ User Guide
 Creating Cinder volume
 =========================
 
+
+
 To verify that EMC VNX plugin is properly installed, you should create a Cinder
 volume and attach it to a newly created VM using for example
 `OpenStack CLI <http://docs.openstack.org/cli-reference/content/>`_ tools.
 
-#. Create a Cinder volume. In this example, a 10GB volume was created using
-   *cinder create <volume size>* command:
+#. Install XtremIO Management Application by pointing a browser to
+    https://<XtremIO-XMS-IP-Address>/xtremapp/index.html and download
+    the executable.
 
-   .. image:: images/create.png
+    .. image:: images/xtremio-mgmt-appl.png
+
+#. Connect and Authenticate XtremIO user with XMS Node
+
+    .. image:: images/xtremio-mgmt-auth.png
+
+#. Create a Cinder volume. In this example, a 1GB volume was created using the
+   Open Stack UI
+
+   .. image:: images/create-volume.png
       :width: 90%
 
-#. Using *cinder list* command (see the screenshot above), let’s check if the
+#. Using the Open Stack (see the screenshot below), let’s check if the
    volume was created. The output provides information on ID, Status
-   (it’s available), Size (10) and some other parameters.
+   (it’s available), Size (1) and some other parameters.
 
-#. Now you can see how it looks on the EMC VNX. In the example environment,
-   EMC VNX SP has 192.168.200.30 IP address. Before you do this,
-   add */opt/Navisphere/bin* directory to PATH environment variable using
-   *export PATH=$PATH:/opt/Navisphere/bin* command and save your EMC
-   credentials using *naviseccli -addusersecurity -password <password>
-   -scope 0 -user <username>* command to simplify syntax in succeeding
-   *naviseccli* commands.
-
-   Use *naviseccli -h <SP IP> lun -list* command to list LUNs created on the
-   EMC:
-
-   .. image:: images/lunid.png
+   .. image:: images/volume-created.png
       :width: 90%
 
-   In the given example there is one LUN with ID: 0, name:
-   *volume-e1626d9e-82e8-4279-808e-5fcd18016720* (naming schema is
-   “volume-<Cinder volume id>”) and it is in “Ready” state, so everything is
-   fine.
+#. Now you can see how it looks on EMC XtremIO.
 
-#. Now create a new VM. To do this, you have to know IDs of a glance image
-   (use *glance image-list* command) and a network (use *nova net-list*
-   command):
+   Using XtremIO Management Application you can check if there is a volume with the same ID
 
-   .. image:: images/glance.png
+   .. image:: images/xtremio-volume-created.png
       :width: 90%
 
-   Note the VM’s ID which is *48e70690-2590-45c7-b01d-6d69322991c3* in the
-   given example.
+   In the given example name: bd1c813c-9810-4955-bba4-503802391642
+
+   It matches the ID shown on the OpenStack UI page. 
+
+#. Now create a new VM.
+
+   .. image:: images/create-instance.png
+      :width: 90%
+
 
 #. Show details of the new VM to check its state and to see on which node it
-   has been created (use *nova show <id>* command). In the output, we see that
-   the VM is running on the node-3 and it is active:
+   has been created. We see that the VM is running on the node-3 and it is active:
 
-   .. image:: images/novaShow.png
+   .. image:: images/instance-created.png
       :width: 90%
 
-#. Attach the Cinder volume to the VM (use *nova volume-attach <VM id>
-   <volume id>*)
-   and verify using cinder list command:
+  .. image:: images/instance-overview.png
+     :width: 90%
 
-   .. image:: images/volumeAttach.png
+#. Attach the Cinder volume to the VM 
+   
+   .. image:: images/volume-attached.png
       :width: 90%
 
-#. To list storage groups configured on EMC VNX, use *naviseccli -h <SP IP>
-   storagegroup -list* command:
+#. To list storage groups configured on EMC XtremIO
+   
+   Image to be added
 
-   .. image:: images/storagegroup.png
-      :width: 90%
 
-   There is one “node-3” storage group with one LUN attached. The LUN has local
-   ID 0 (ALU Number) and it is available as LUN 133 (HLU Number) for the
-   node-3. There are four iSCSI HBA/SP Pairs - one per the SP-Port pair.
-
-#. You can also check if iSCSI sessions are active using
-   *naviseccli -h <SP IP> port -list -hba* command:
-
-   .. image:: images/hba.png
-      :width: 90%
+#. You can also check if iSCSI sessions are active 
 
    Look at “Logged In” parameter of each port. In the given example, all four
    sessions are active (in the output, it looks like Logged In: YES).
@@ -86,7 +80,6 @@ volume and attach it to a newly created VM using for example
    has been created by multipath daemon using multipath -ll command, if VM is
    using the multipath device using
    *lsof -n -p `pgrep -f <VM id>` | grep /dev/<DM device name>* command:
-
 
    .. image:: images/iscsiadmin.png
       :width: 90%

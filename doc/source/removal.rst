@@ -2,18 +2,18 @@
 Removal Guide
 ==================
 
-Zabbix plugin removal
+
+EMC XtremIO plugin removal
 ============================================
 
-To uninstall Zabbix plugin, follow these steps:
+#. Delete or reset all Environments in which EMC XtremIO plugin has been enabled
 
-1. Delete all Environments in which Zabbix plugin has been enabled.
-2. Uninstall the plugin:
+#. Uninstall the plugin:
 
-   # fuel plugins --remove zabbix_monitoring==2.5.0
+    # fuel plugins --remove emc_xtremio==3.0.0
 
-3. Check if the plugin was uninstalled successfully:
+#. Check if the plugin was uninstalled successfully::
 
-   # fuel plugins
+    # fuel plugins
     id | name                      | version  | package_version
-    ---|---------------------------|----------|----------------
+    ---|---------------------------|----------|------
