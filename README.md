@@ -54,28 +54,28 @@ To install EMC XtremIO plugin, follow these steps:
     that. If you do not have the Fuel Master node yet, see
     [Quick Start Guide](https://software.mirantis.com/quick-start/):
 
-        # scp emc_xtremio-3.0-3.0.0-0.noarch.rpm root@<Fuel_master_ip>:/tmp
+        # scp emc_xtremio-2.0-2.0.0-1.noarch.rpm root@<Fuel_master_ip>:/tmp
 
 3. Log into the Fuel Master node. Install the plugin:
 
         # cd /tmp
-        # fuel plugins --install emc_xtremio-2.0-2.0.0-0.noarch.rpm
+        # fuel plugins --install emc_xtremio-2.0-2.0.0-1.noarch.rpm
 
 4. Check if the plugin was installed successfully:
 
         # fuel plugins
         id | name        | version | package_version
         ---|-------------|---------|----------------
-        1  | emc_xtremio | 3.0.0   | 3.0.0
+        1  | emc_xtremio | 2.0.0   | 4.0.0
 
-EMC VNX plugin configuration
-----------------------------
+EMC XtremIO plugin configuration
+--------------------------------
 
 1. Create an environment with the default backend for Cinder.
 2. Enable the plugin on the Settings tab of the Fuel web UI and fill in form
     fields:
    * username/password - access credentials configured on EMC XtremIO XMS
-   * XMS - IP addresse of one EMC XtremIO XMS Processors
+   * XMS IP Address - EMC XtremIO XMS IP Address 
    * cluster name (optional) - In case XtremIO XMS processor is managing multiple
    clusters.
 3. Deploy the environment without a Cinder node. All required Cinder services
