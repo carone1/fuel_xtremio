@@ -5,7 +5,7 @@
 
 **XtremIO Plugin 1.0.0**
 
-**Mirantis OpenStack 7.0 & 8.0**
+**Mirantis OpenStack 7.0 **
 
 .. image:: images/emc-logo.png
 .. image:: images/fuel-logo.png
@@ -24,7 +24,7 @@ Document purpose
 ----------------
 
 This document provides test run results for *System testing* of
-*XtremIO* Fuel Plugin *1.0.0* on Mirantis OpenStack *8.0 & 7.0*.
+*XtremIO* Fuel Plugin *1.0.0* on Mirantis OpenStack *7.0*.
 
 Test environment
 ----------------

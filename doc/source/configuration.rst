@@ -6,7 +6,7 @@ EMC XtremIO plugin configuration
    role to any node, because all Cinder services will be run on Controllers.
    For more information about environment creation, see `Mirantis OpenStack
    User Guide - create a new environment <https://docs.mirantis.com/openstack/
-   fuel/fuel-8.0/pdf/Fuel-8.0-UserGuide.pdf>`_.
+   fuel/fuel-7.0/user-guide.pdf>`_.
 
 2. Open Settings tab of the Fuel web UI and scroll the page down. Select the
    plugin checkbox and fill in form fields:
@@ -25,5 +25,5 @@ Cluster Name (optional)            Cluster Name in case XMS is supporting
 
 3. Adjust other environment settings to your requirements and deploy the
    environment.  For more information, see `Mirantis OpenStack User Guide -
-   deploy changes <https://docs.mirantis.com/openstack/fuel/fuel-8.0/
+   deploy changes <https://docs.mirantis.com/openstack/fuel/fuel-7.0/
    operations.html>`_.

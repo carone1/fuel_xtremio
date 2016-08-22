@@ -5,7 +5,7 @@
 
 **XtremIO Fuel** **Plugin 1.0.0**
 
-**Mirantis OpenStack 7.0 & 8.0**
+**Mirantis OpenStack 7.0**
 
 .. image:: images/emc-logo.png
 
@@ -191,8 +191,6 @@ Product compatibility matrix
 +--------------------------+---------------------------+----------------------------+-------------------+
 | XtremIO Plugin version   | Compatible Fuel version   | OpenStack and OS Version   | XtremIO version   |
 +==========================+===========================+============================+===================+
-| 1.0.0                    | 8.0                       | Liberty on Ubuntu14.04     | 4.2 (build 34)    |
-+--------------------------+---------------------------+----------------------------+-------------------+
 | 1.0.0                    | 7.0                       | Kilo on Ubuntu 14.04       | 4.2 (build 34)    |
 +--------------------------+---------------------------+----------------------------+-------------------+
 
@@ -588,13 +586,6 @@ Appendix
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 2       | `Introduction to XtremIO Guide <https://support.emc.com/docu50574_White-Paper:-Introduction-to-the-EMC-XtremIO-All-Flash-Array.pdf?language=en_US>`__   |
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 3       | `XtremIO Liberty Open Stack Cinder Driver Guide <http://docs.openstack.org/liberty/config-reference/content/XtremIO-cinder-driver.html>`__              |
-+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 4       | `XtremIO Kilo Open Stack Cinder Driver Guide <http://docs.openstack.org/kilo/config-reference/content/XtremIO-cinder-driver.html>`__                    |
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
-.. |image0| image:: media/image1.png
-.. |image1| image:: media/image2.png
-.. |image2| image:: media/image3.png
-.. |image3| image:: media/image4.png
-.. |image4| image:: media/image5.png
