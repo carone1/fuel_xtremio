@@ -17,4 +17,6 @@ EMC XtremIO plugin for Fuel.
     configuration.rst
     guide.rst
     troubleshooting.rst
+    test-plan.rst
+    test-plan-report.rst
     appendix.rst
