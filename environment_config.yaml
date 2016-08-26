@@ -28,7 +28,7 @@ attributes:
       error: "Specify valid IPv4 address"
   emc_cluster_name:
     value: ""
-    label: "EMC XtremIO cluster name"
+    label: "XtremIO cluster name"
     description: "EMC XtremIO cluster name (optional)"
     weight: 95
     type: "text"

@@ -42,7 +42,7 @@ EMC XtremIO configuration checklist:
 		2. configure network for one XMS controller
 		3. configure network for all iSCSI ports
 
-EMC VNX plugin installation
+EMC XtremIO plugin installation
 ---------------------------
 
 To install EMC XtremIO plugin, follow these steps:
@@ -66,7 +66,7 @@ To install EMC XtremIO plugin, follow these steps:
         # fuel plugins
         id | name        | version | package_version
         ---|-------------|---------|----------------
-        1  | emc_xtremio | 1.0.0   | 3.0.0
+        1  | emc_xtremio | 1.0.0   | 2.0.0
 
 EMC XtremIO plugin configuration
 ----------------------------

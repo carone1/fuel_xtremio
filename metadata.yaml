@@ -2,7 +2,7 @@
 name: emc_xtremio
 title: EMC XtremIO driver for Cinder
 # Plugin version
-version: 1.0.0
+version: '1.0.0'
 # Description
 description: Enables EMC XtremIO driver in Cinder
 # Required fuel version
@@ -12,9 +12,9 @@ groups: ['storage::cinder']
 # Licenses
 licenses: ['Apache License, Version 2.0']
 # Homepage
-homepage: 'https://github.com/stackforge/fuel-plugin-external-emc'
+homepage: 'https://github.com/carone1/fuel-xtremio'
 # Authors
-authors: ['Eric Caron <eric.caron@emc.com>']
+authors: ['EMC']
 # Change `false` to `true` if the plugin can be installed in the environment
 # after the deployment.
 is_hotpluggable: false
@@ -22,10 +22,10 @@ is_hotpluggable: false
 # The plugin is compatible with releases in the list
 releases:
   - os: ubuntu
-    version: kilo-7.0
+    version: 2015.1.0-7.0 
     mode: ['ha']
     deployment_scripts_path: deployment_scripts/
     repository_path: repositories/ubuntu
 
 # Version of plugin package
-package_version: '3.0.0'
+package_version: '2.0.0'

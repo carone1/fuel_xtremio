@@ -5,4 +5,4 @@
     - name: 'hypervisor:libvirt:*'
   incompatible:
     - name: 'storage:block:ceph'
-    - name: 'storage:block:lvm'
+##  - name: 'storage:block:lvm'
