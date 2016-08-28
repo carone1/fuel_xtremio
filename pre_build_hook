@@ -2,16 +2,13 @@
 set -eux
 
 ROOT="$(dirname `readlink -f $0`)"
-RPM_REPO="${ROOT}"/repositories/centos/
 DEB_REPO="${ROOT}"/repositories/ubuntu/
-mkdir -p $RPM_REPO
 mkdir -p $DEB_REPO
 
 # Downloads needed RPM or DEB packages
 function download {
     case "$1" in
         deb) REPO=$DEB_REPO;;
-#        rpm) REPO=$RPM_REPO;;
     esac
     shift
 

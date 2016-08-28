@@ -3,9 +3,9 @@
 
 **For**
 
-**XtremIO Fuel** **Plugin 2.0.0**
+**XtremIO Fuel** **Plugin 3.0.0**
 
-**Mirantis OpenStack 8.0**
+**Mirantis OpenStack 9.0**
 
 .. image:: images/emc-logo.png
 
@@ -16,7 +16,7 @@
 +---------------+---------------------+------------------------+--------------------+
 | **Version**   | **Revision date**   | **Editor**             | **Comment**        |
 +===============+=====================+========================+====================+
-| 0.1           | 16.08.2016          | Eric Caron             | Initial version.   |
+| 0.1           | 26.08.2016          | Eric Caron             | Initial version.   |
 |               |                     |                        |                    |
 |               |                     | (eric.caron@emc.com)   |                    |
 +---------------+---------------------+------------------------+--------------------+
@@ -191,7 +191,7 @@ Product compatibility matrix
 +--------------------------+---------------------------+----------------------------+-------------------+
 | XtremIO Plugin version   | Compatible Fuel version   | OpenStack and OS Version   | XtremIO version   |
 +==========================+===========================+============================+===================+
-| 2.0.0                    | 8.0                       | Liberty on Ubuntu14.04     | 4.2 (build 34)    |
+| 3.0.0                    | 9.0                       | Mikata on Ubuntu14.04      | 4.2 (build 34)    |
 +--------------------------+---------------------------+----------------------------+-------------------+
 
 System Testing
@@ -515,35 +515,6 @@ Uninstall of plugin
 Upgrade/update
 --------------
 
-The Fuel Master node upgrade testing
-------------------------------------
-
-+-------------------+---------------------------------------------------------------------------------------------------------------+
-| Test Case ID      | upgrade\_Master\_node                                                                                         |
-+===================+===============================================================================================================+
-| Steps             | Install the version of MOS 8.0                                                                                 |
-|                   |                                                                                                               |
-|                   | Install plugin                                                                                                |
-|                   |                                                                                                               |
-|                   | Deploy environment with enabled plugin functionality                                                          |
-|                   |                                                                                                               |
-|                   | Run OSTF excepting test with launch of instances                                                              |
-|                   |                                                                                                               |
-|                   | Upgrade the Fuel Master node 8.0 -> 9.0                                                                       |
-|                   |                                                                                                               |
-|                   | Verify cluster and plugin functionality                                                                       |
-|                   |                                                                                                               |
-|                   | make sure all nodes are left in ready state                                                                   |
-|                   |                                                                                                               |
-|                   | run OSTF checks excepting test with launch of instances                                                       |
-+-------------------+---------------------------------------------------------------------------------------------------------------+
-| Expected Result   | Cluster and plugin stay fully operational.                                                                    |
-|                   |                                                                                                               |
-|                   | When the upgrade is complete, the following messages will appear under the Releases tab in the Fuel Web UI:   |
-|                   |                                                                                                               |
-|                   | New release available: Mikata on Ubuntu.                                                                      |
-+-------------------+---------------------------------------------------------------------------------------------------------------+
-
 Apply maintenance updates to deployed environment
 -------------------------------------------------
 
@@ -586,7 +557,7 @@ Appendix
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 2       | `Introduction to XtremIO Guide <https://support.emc.com/docu50574_White-Paper:-Introduction-to-the-EMC-XtremIO-All-Flash-Array.pdf?language=en_US>`__   |
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 3       | `XtremIO Liberty Open Stack Cinder Driver Guide <http://docs.openstack.org/liberty/config-reference/content/XtremIO-cinder-driver.html>`__              |
+| 3       | `XtremIO Mikata Open Stack Cinder Driver Guide <http://docs.openstack.org/mitaka/config-reference/block-storage/drivers/emc-xtremio-driver.html>`__              |
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 

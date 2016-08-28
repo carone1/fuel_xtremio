@@ -14,7 +14,7 @@ Requirements
 +-----------------+-----------------------------------------------------------+
 |Requirement      | Version/Comment                                           |
 +=================+===========================================================+
-|Fuel             | 8.0                                                       |
+|Fuel             | 9.0                                                       |
 +-----------------+-----------------------------------------------------------+
 |EMC XtremIO array| #. XtremIO Operational Environment running S/W version 4.0|
 |                 |    or higher.                                             |
@@ -26,11 +26,11 @@ Requirements
 Limitations
 ============
 
-#. Since only one storage network is available in Fuel 8.x on OpenStack nodes,
+#. Since only one storage network is available in Fuel 6.x on OpenStack nodes,
    multipath will bind all storage paths from EMC on one network interface.
    In case this NIC fails, the communication with storage is lost.
 
 #. Fibre Channel driver is not supported.
 
 #. EMC XtremIO plugin cannot be used together with cinder role and/or options
-   'Cinder LVM over iSCSI for volumes', 'Ceph RBD for volumes (Cinder)'.
+   'Ceph RBD for volumes (Cinder)'.

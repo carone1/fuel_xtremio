@@ -5,7 +5,7 @@ EMC XtremIO plugin
 ------------------
 
 EMC XtremIO plugin for Fuel extends Mirantis OpenStack functionality by adding
-support for EMC VNX arrays in Cinder using iSCSI protocol. It replaces Cinder
+support for EMC XtremIO arrays in Cinder using iSCSI protocol. It replaces Cinder
 LVM driver which is the default volume backend that uses local volumes
 managed by LVM.
 
@@ -14,7 +14,7 @@ Requirements
 
 | Requirement                      | Version/Comment |
 |:---------------------------------|:----------------|
-| Mirantis OpenStack compatibility | 8.0             |
+| Mirantis OpenStack compatibility | 9.0             |
 
 Limitations
 -----------
@@ -54,19 +54,19 @@ To install EMC XtremIO plugin, follow these steps:
     that. If you do not have the Fuel Master node yet, see
     [Quick Start Guide](https://software.mirantis.com/quick-start/):
 
-        # scp emc_xtremio-2.0-2.0.0-1.noarch.rpm root@<Fuel_master_ip>:/tmp
+        # scp emc_xtremio-3.0-3.0.0-1.noarch.rpm root@<Fuel_master_ip>:/tmp
 
 3. Log into the Fuel Master node. Install the plugin:
 
         # cd /tmp
-        # fuel plugins --install emc_xtremio-2.0-2.0.0-1.noarch.rpm
+        # fuel plugins --install emc_xtremio-3.0-3.0.0-1.noarch.rpm
 
 4. Check if the plugin was installed successfully:
 
         # fuel plugins
         id | name        | version | package_version
         ---|-------------|---------|----------------
-        1  | emc_xtremio | 2.0.0   | 4.0.0
+        1  | emc_xtremio | 3.0.0   | 4.0.0
 
 EMC XtremIO plugin configuration
 --------------------------------
