@@ -17,7 +17,7 @@ class plugin_emc_xtremio::primary_controller {
 
   include plugin_emc_xtremio::controller
 
-  cs_resource { "p_${::cinder::params::volume_service}":
+   cs_primitive { "p_${::cinder::params::volume_service}":
     ensure          => present,
     require         => File['cinder-volume-agent-ocf'],
     primitive_class => 'ocf',
@@ -45,7 +45,7 @@ class plugin_emc_xtremio::primary_controller {
   }
 
   Service['cinder_volume-init_stopped'] ->
-    Cs_resource["p_${::cinder::params::volume_service}"] ->
+    Cs_primitive["p_${::cinder::params::volume_service}"] ->
     Service['cinder_volume']
 
 }
