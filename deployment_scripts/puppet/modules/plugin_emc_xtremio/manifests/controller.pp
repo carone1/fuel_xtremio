@@ -27,7 +27,7 @@ class plugin_emc_xtremio::controller {
     Package[$::cinder::params::volume_package] -> Cinder_config<||>
   }
 
-  $volume_type      = 'XtremIO'
+  $volume_type      = 'XtremIO-backend'
   $xtrem_io_section = 'XtremIO'
   $default_section  = 'DEFAULT'
 
