@@ -66,11 +66,11 @@ Storage Management application.
 Plugin's RPM
 ------------
 
-+------------------------------------+--------------------+
-| **Name**                           | **md5 checksum**   |
-+====================================+====================+
-| emc_xtremio-3.0-3.0.0-1.noarch.rpm |                    |
-+------------------------------------+--------------------+
++------------------------------------+
+| **Name**                           |
++====================================+
+| emc_xtremio-3.0-3.0.0-1.noarch.rpm |
++------------------------------------+
 
 Test coverage and metrics
 -------------------------
@@ -93,11 +93,11 @@ Coverage of features
 +=============================================+=============+
 | Total quantity of executed test cases       | 6           |
 +---------------------------------------------+-------------+
-| Total quantity of not executed test cases   | 1           |
+| Total quantity of not executed test cases   | 0           |
 +---------------------------------------------+-------------+
 | Quantity of automated test cases            | 0           |
 +---------------------------------------------+-------------+
-| Quantity of not automated test cases        | 7           |
+| Quantity of not automated test cases        | 6           |
 +---------------------------------------------+-------------+
 
 Detailed testrun results

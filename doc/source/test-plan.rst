@@ -180,10 +180,12 @@ How to do checks with the XtremIO Storage Management application:
 1) Verify that there aren’t any alerts on the XtremIO dashboard
 
 .. image:: images/xtremio-mgmt-state.png
+	:width: 70%
 
-1) Ensure all h/w indicator are in a good state
+2) Ensure all h/w indicator are in a good state
 
 .. image:: images/xtremio-hw-state.png
+	:width: 70%
 
 Product compatibility matrix
 ----------------------------
@@ -191,7 +193,7 @@ Product compatibility matrix
 +--------------------------+---------------------------+----------------------------+-------------------+
 | XtremIO Plugin version   | Compatible Fuel version   | OpenStack and OS Version   | XtremIO version   |
 +==========================+===========================+============================+===================+
-| 3.0.0                    | 9.0                       | Mikata on Ubuntu14.04      | 4.2 (build 34)    |
+| 3.0.0                    | 9.0                       | Mitaka on Ubuntu14.04      | 4.2 (build 34)    |
 +--------------------------+---------------------------+----------------------------+-------------------+
 
 System Testing
@@ -549,6 +551,7 @@ Apply maintenance updates to deployed environment
 +-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Appendix
+========
 
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **№**   | **Resource title**                                                                                                                                      |
@@ -557,7 +560,6 @@ Appendix
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 2       | `Introduction to XtremIO Guide <https://support.emc.com/docu50574_White-Paper:-Introduction-to-the-EMC-XtremIO-All-Flash-Array.pdf?language=en_US>`__   |
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 3       | `XtremIO Mikata Open Stack Cinder Driver Guide <http://docs.openstack.org/mitaka/config-reference/block-storage/drivers/emc-xtremio-driver.html>`__              |
-+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
+| 3       | `XtremIO Mitaka Open Stack Cinder Driver Guide <http://docs.openstack.org/mitaka/config-reference/block-storage/drivers/emc-xtremio-driver.html>`__     |
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 

@@ -1,5 +1,5 @@
 EMC XtremIO Plugin for Fuel
-==========================
+===========================
 
 EMC XtremIO plugin
 ------------------
@@ -12,9 +12,12 @@ managed by LVM.
 Requirements
 ------------
 
-| Requirement                      | Version/Comment |
-|:---------------------------------|:----------------|
-| Mirantis OpenStack compatibility | 9.0             |
++----------------------------------+---------------------+
+| **Requirement**                  | **Version/Comment** |
++==================================+=====================+
+| Mirantis OpenStack compatibility | 26.08.2016          | 
++----------------------------------+---------------------+
+
 
 Limitations
 -----------
@@ -26,83 +29,25 @@ In case this NIC fails, the communication with storage is lost.
 Installation Guide
 ==================
 
-[Installation Guide](https://github.com/carone1/fuel_xtremio/blob/release/3.0/doc/source/installation.rst)
-
-:doc:`installation.rst`
+`Installation Guide <doc/source/installation.rst>`_
 
 Configuration Guide
 ===================
 
-:doc:`configuration.rst`
+`Configuration Guide <doc/source/configuration.rst>`_
 
 Troubleshooting Guide
 =====================
 
-:doc:`troubleshooting.rst`
+`Troubleshooting Guide <doc/source/troubleshooting.rst>`_
 
 Tesplan
 =======
 
-:doc:`test-plan.rst`
+`Testplan <doc/source/test-plan.rst>`_
 
 Testplan Report
 ===============
 
-:doc:`test-plan-report.rst`
+`Testplan Report <doc/source/test-plan-report.rst>`_
 
-
-Remove below
-
-
-
-
-Before starting a deployment you have to preconfigure EMC XtremIO array and connect
-it properly to the environment. Both EMC XMS IP and all iSCSI ports should be
-available over storage interface from OpenStack nodes. To learn more about
-EMC XtremIO configuration, see
-[Official EMC XtremIO series documentation](https://support.emc.com/docu71055_XtremIO-XIOS-4.0.2,-4.0.4,-and-4.0.10-with-XMS-4.2.0-Storage-Array-User-Guide.pdf?language=en_US)
-
-EMC XtremIO configuration checklist:
-
-		1. create username/password
-		2. configure network for one XMS controller
-		3. configure network for all iSCSI ports
-
-EMC VNX plugin installation
----------------------------
-
-To install EMC XtremIO plugin, follow these steps:
-
-1. Download the plugin from
-    [Fuel Plugins Catalog](https://software.mirantis.com/fuel-plugins)
-
-2. Copy the plugin on already installed Fuel Master node; ssh can be used for
-    that. If you do not have the Fuel Master node yet, see
-    [Quick Start Guide](https://software.mirantis.com/quick-start/):
-
-        # scp emc_xtremio-3.0-3.0.0-1.noarch.rpm root@<Fuel_master_ip>:/tmp
-
-3. Log into the Fuel Master node. Install the plugin:
-
-        # cd /tmp
-        # fuel plugins --install emc_xtremio-3.0-3.0.0-1.noarch.rpm
-
-4. Check if the plugin was installed successfully:
-
-        # fuel plugins
-        id | name        | version | package_version
-        ---|-------------|---------|----------------
-        1  | emc_xtremio | 3.0.0   | 4.0.0
-
-EMC XtremIO plugin configuration
---------------------------------
-
-1. Create an environment with the default backend for Cinder.
-2. Enable the plugin on the Settings tab of the Fuel web UI and fill in form
-    fields:
-   * username/password - access credentials configured on EMC XtremIO XMS
-   * XMS IP Address - EMC XtremIO XMS IP Address 
-   * cluster name (optional) - In case XtremIO XMS processor is managing multiple
-   clusters.
-3. Deploy the environment without a Cinder node. All required Cinder services
-    are run on Controller nodes.
