@@ -10,7 +10,7 @@ EMC XtremIO plugin removal
 
 #. Uninstall the plugin:
 
-    # fuel plugins --remove emc_xtremio==2.0.0
+    # fuel plugins --remove emc_xtremio==3.0.0
 
 #. Check if the plugin was uninstalled successfully::
 

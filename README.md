@@ -26,15 +26,41 @@ In case this NIC fails, the communication with storage is lost.
 Installation Guide
 ==================
 
+[Installation Guide](https://github.com/carone1/fuel_xtremio/blob/release/3.0/doc/source/installation.rst)
 
-EMC XtremIO configuration
--------------------------
+:doc:`installation.rst`
+
+Configuration Guide
+===================
+
+:doc:`configuration.rst`
+
+Troubleshooting Guide
+=====================
+
+:doc:`troubleshooting.rst`
+
+Tesplan
+=======
+
+:doc:`test-plan.rst`
+
+Testplan Report
+===============
+
+:doc:`test-plan-report.rst`
+
+
+Remove below
+
+
+
 
 Before starting a deployment you have to preconfigure EMC XtremIO array and connect
 it properly to the environment. Both EMC XMS IP and all iSCSI ports should be
 available over storage interface from OpenStack nodes. To learn more about
 EMC XtremIO configuration, see
-[the official EMC XtremIO series documentation](https://support.emc.com/docu71055_XtremIO-XIOS-4.0.2,-4.0.4,-and-4.0.10-with-XMS-4.2.0-Storage-Array-User-Guide.pdf?language=en_US)
+[Official EMC XtremIO series documentation](https://support.emc.com/docu71055_XtremIO-XIOS-4.0.2,-4.0.4,-and-4.0.10-with-XMS-4.2.0-Storage-Array-User-Guide.pdf?language=en_US)
 
 EMC XtremIO configuration checklist:
 
