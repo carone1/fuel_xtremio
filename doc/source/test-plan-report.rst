@@ -15,7 +15,7 @@ Revision history
 +---------------+---------------------+------------------------+-------------------+
 | **Version**   | **Revision date**   | **Editor**             | **Comment**       |
 +===============+=====================+========================+===================+
-| 1.0           | 08.18.2016          | Eric Caron             | Initial version   |
+| 1.0           | 08.26.2016          | Eric Caron             | Initial version   |
 |               |                     |                        |                   |
 |               |                     | (eric.caron@emc.com)   |                   |
 +---------------+---------------------+------------------------+-------------------+
@@ -32,12 +32,11 @@ Test environment
 The test lab should include 5 nodes. The following designations for the
 nodes:
 
-    1) Fuel master node (w/ 50GB Disk, 2 Network interfaces [Mgmt, PXE]
-    )
-    | 2) OpenStack Controller #1 node
-    | 3) OpenStack Controller #2 node
-    | 4) OpenStack Controller #3 node
-    | 5) OpenStack Compute node
+    1) Fuel master node (w/ 50GB Disk, 2 Network interfaces [Mgmt, PXE])
+    2) OpenStack Controller #1 node
+    3) OpenStack Controller #2 node
+    4) OpenStack Controller #3 node
+    5) OpenStack Compute node
 
 Each node shall have at least 2 CPUs, 4GB RAM, 80GB disks, 3 Network
 interfaces. The 3 interfaces will be used for the following purposes:
@@ -66,11 +65,11 @@ Storage Management application.
 Plugin's RPM
 ------------
 
-+------------------------------------+--------------------+
-| **Name**                           | **md5 checksum**   |
-+====================================+====================+
-| emc_xtremio-2.0-2.0.0-1.noarch.rpm |                    |
-+------------------------------------+--------------------+
++------------------------------------+
+| **Name**                           |
++====================================+
+| emc_xtremio-2.0-2.0.0-1.noarch.rpm |
++------------------------------------+
 
 Test coverage and metrics
 -------------------------
@@ -93,11 +92,11 @@ Coverage of features
 +=============================================+=============+
 | Total quantity of executed test cases       | 6           |
 +---------------------------------------------+-------------+
-| Total quantity of not executed test cases   | 1           |
+| Total quantity of not executed test cases   | 0           |
 +---------------------------------------------+-------------+
 | Quantity of automated test cases            | 0           |
 +---------------------------------------------+-------------+
-| Quantity of not automated test cases        | 7           |
+| Quantity of not automated test cases        | 6           |
 +---------------------------------------------+-------------+
 
 Detailed testrun results
@@ -116,11 +115,9 @@ Detailed testrun results
 +------------+------------------------------------------------------+--------------+--------------+---------------+---------------+
 | 5          | uninstall\_plugin                                    |      *       |              |               |               |
 +------------+------------------------------------------------------+--------------+--------------+---------------+---------------+
-| 6          | upgrade\_Master\_node                                |              |              |               | Pending       |
+| 6          | apply\_mu                                            |      *       |              |               |               |
 +------------+------------------------------------------------------+--------------+--------------+---------------+---------------+
-| 7          | apply\_mu                                            |      *       |              |               |               |
-+------------+------------------------------------------------------+--------------+--------------+---------------+---------------+
-| Total      | 7                                                    |              |              |               |               |
+| Total      | 6                                                    |              |              |               |               |
 +------------+------------------------------------------------------+--------------+--------------+---------------+---------------+
 | Total, %   | 100                                                  |              |              |               |               |
 +------------+------------------------------------------------------+--------------+--------------+---------------+---------------+
