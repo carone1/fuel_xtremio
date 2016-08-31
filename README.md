@@ -12,11 +12,13 @@ managed by LVM.
 Requirements
 ------------
 
-+----------------------------------+---------------------+
-| **Requirement**                  | **Version/Comment** |
-+==================================+=====================+
-| Mirantis OpenStack compatibility | 26.08.2016          | 
-+----------------------------------+---------------------+
+| Requirements                   | Version/Comment |
+| ------------------------------ |:---------------:|
+| Mirantis OpenStack compability | Mirantis 9.0    |
+| Fuel compability               | Fuel 9.0        |
+| XtremIO software compability   | >= 4.0.0        |
+
+
 
 
 Limitations
@@ -29,25 +31,25 @@ In case this NIC fails, the communication with storage is lost.
 Installation Guide
 ==================
 
-`Installation Guide <doc/source/installation.rst>`_
+[Installation Guide] (doc/source/installation.rst)
 
 Configuration Guide
 ===================
 
-`Configuration Guide <doc/source/configuration.rst>`_
+[Configuration Guide] (doc/source/configuration.rst)
 
 Troubleshooting Guide
 =====================
 
-`Troubleshooting Guide <doc/source/troubleshooting.rst>`_
+[Troubleshooting Guide] (doc/source/troubleshooting.rst)
 
 Tesplan
 =======
 
-`Testplan <doc/source/test-plan.rst>`_
+[Testplan] (doc/source/test-plan.rst)
 
 Testplan Report
 ===============
 
-`Testplan Report <doc/source/test-plan-report.rst>`_
+[Testplan Report] (doc/source/test-plan-report.rst)
 
