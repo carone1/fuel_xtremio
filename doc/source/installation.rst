@@ -12,7 +12,7 @@ about EMC XtremIO configuration, see `The official EMC XtremIO series
 documentation
 <https://support.emc.com/products/31111_XtremIO/Documentation/>`_
 
-EMC VNX configuration checklist:
+EMC XtremIO configuration checklist:
 
 +------------------------------------+-------------------------+
 |Item to confirm                     |  Status (tick if done)  |
@@ -20,7 +20,7 @@ EMC VNX configuration checklist:
 |Create username/password            |                         |
 +------------------------------------+-------------------------+
 |Configure network:                  |                         |
-|   - for XMS Processors             |                         |
+|   - for XMS host                   |                         |
 |   - for all iSCSI ports            |                         |
 +------------------------------------+-------------------------+
 
@@ -35,16 +35,16 @@ EMC XtremIO plugin installation
    the Fuel Master node yet, see
    `Quick Start Guide <https://software.mirantis.com/quick-start/>`_::
 
-    # scp emc_xtremio-3.0-3.0.0-1.noarch.rpm root@<the_Fuel_Master_node_IP>:/tmp
+    # scp emc_xtremio-1.0-1.0.0-1.noarch.rpm root@<the_Fuel_Master_node_IP>:/tmp
 
 #. Log into the Fuel Master node. Install the plugin::
 
     # cd /tmp
-    # fuel plugins --install emc_xtremio-3.0-3.0.0-1.noarch.rpm
+    # fuel plugins --install emc_xtremio-1.0-1.0.0-1.noarch.rpm 
 
 #. Check if the plugin was installed successfully::
 
     # fuel plugins
     id | name        | version | package_version
     ---|-------------|---------|----------------
-    1  | emc_xtremio | 3.0.0   | 3.0.0
+    1  | emc_xtremio | 1.0.0   | 2.0.0

@@ -33,4 +33,4 @@ Limitations
 #. Fibre Channel driver is not supported.
 
 #. EMC XtremIO plugin cannot be used together with cinder role and/or options
-   'Cinder LVM over iSCSI for volumes', 'Ceph RBD for volumes (Cinder)'.
+   'Ceph RBD for volumes (Cinder)'.

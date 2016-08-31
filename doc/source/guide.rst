@@ -7,7 +7,7 @@ Creating Cinder volume
 
 
 
-To verify that EMC VNX plugin is properly installed, you should create a Cinder
+To verify that EMC XtremIO plugin is properly installed, you should create a Cinder
 volume and attach it to a newly created VM using for example
 `OpenStack CLI <http://docs.openstack.org/cli-reference/content/>`_ tools.
 
@@ -64,10 +64,6 @@ volume and attach it to a newly created VM using for example
    
    .. image:: images/volume-attached.png
       :width: 90%
-
-#. To list storage groups configured on EMC XtremIO
-   
-   Image to be added
 
 
 #. You can also check if iSCSI sessions are active 

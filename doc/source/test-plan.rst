@@ -16,7 +16,7 @@
 +---------------+---------------------+------------------------+--------------------+
 | **Version**   | **Revision date**   | **Editor**             | **Comment**        |
 +===============+=====================+========================+====================+
-| 0.1           | 16.08.2016          | Eric Caron             | Initial version.   |
+| 0.1           | 26.08.2016          | Eric Caron             | Initial version.   |
 |               |                     |                        |                    |
 |               |                     | (eric.caron@emc.com)   |                    |
 +---------------+---------------------+------------------------+--------------------+
@@ -167,7 +167,7 @@ Test environment, infrastructure and tools
 The test lab should include 4 nodes. The following designations for the
 nodes:
 
-Each node shall have at least 2 CPUs, 4GB RAM, 60GB disks, 3 Network
+Each node shall have at least 2 CPUs, 4GB RAM, 80GB disks, 3 Network
 interfaces. The 3 interfaces will be used for the following purposes:
 
 In order to perform management operations with XtremIO cluster there is
@@ -180,10 +180,12 @@ How to do checks with the XtremIO Storage Management application:
 1) Verify that there aren’t any alerts on the XtremIO dashboard
 
 .. image:: images/xtremio-mgmt-state.png
+	:width: 70%
 
-1) Ensure all h/w indicator are in a good state
+2) Ensure all h/w indicator are in a good state
 
 .. image:: images/xtremio-hw-state.png
+	:width: 70%
 
 Product compatibility matrix
 ----------------------------
@@ -191,7 +193,7 @@ Product compatibility matrix
 +--------------------------+---------------------------+----------------------------+-------------------+
 | XtremIO Plugin version   | Compatible Fuel version   | OpenStack and OS Version   | XtremIO version   |
 +==========================+===========================+============================+===================+
-| 1.0.0                    | 7.0                       | Kilo on Ubuntu 14.04       | 4.2 (build 34)    |
+| 1.0.0                    | 7.0                       | Kilo on Ubuntu14.04      | 4.2 (build 34)    |
 +--------------------------+---------------------------+----------------------------+-------------------+
 
 System Testing
@@ -515,35 +517,6 @@ Uninstall of plugin
 Upgrade/update
 --------------
 
-The Fuel Master node upgrade testing
-------------------------------------
-
-+-------------------+---------------------------------------------------------------------------------------------------------------+
-| Test Case ID      | upgrade\_Master\_node                                                                                         |
-+===================+===============================================================================================================+
-| Steps             | Install the version of MOS7.0                                                                                 |
-|                   |                                                                                                               |
-|                   | Install plugin                                                                                                |
-|                   |                                                                                                               |
-|                   | Deploy environment with enabled plugin functionality                                                          |
-|                   |                                                                                                               |
-|                   | Run OSTF excepting test with launch of instances                                                              |
-|                   |                                                                                                               |
-|                   | Upgrade the Fuel Master node 7.0 -> 8.0                                                                       |
-|                   |                                                                                                               |
-|                   | Verify cluster and plugin functionality                                                                       |
-|                   |                                                                                                               |
-|                   | make sure all nodes are left in ready state                                                                   |
-|                   |                                                                                                               |
-|                   | run OSTF checks excepting test with launch of instances                                                       |
-+-------------------+---------------------------------------------------------------------------------------------------------------+
-| Expected Result   | Cluster and plugin stay fully operational.                                                                    |
-|                   |                                                                                                               |
-|                   | When the upgrade is complete, the following messages will appear under the Releases tab in the Fuel Web UI:   |
-|                   |                                                                                                               |
-|                   | New release available: Libery on Ubuntu.                                                                      |
-+-------------------+---------------------------------------------------------------------------------------------------------------+
-
 Apply maintenance updates to deployed environment
 -------------------------------------------------
 
@@ -556,7 +529,7 @@ Apply maintenance updates to deployed environment
 |                   |                                                                                                                                                                                                |
 |                   | Run OSTF excepting test with launch of instances                                                                                                                                               |
 |                   |                                                                                                                                                                                                |
-|                   | Once environment is deployed, apply maintenance updates following `*the instructions.* <https://docs.mirantis.com/openstack/fuel/fuel-7.0/maintenance-updates.html%23maintenance-updates>`__   |
+|                   | Once environment is deployed, apply maintenance updates following `*the instructions.* <https://docs.mirantis.com/openstack/fuel/fuel-8.0/maintenance-updates.html%23maintenance-updates>`__   |
 |                   |                                                                                                                                                                                                |
 |                   | Make sure all nodes are in ready state and no regression is observed.                                                                                                                          |
 |                   |                                                                                                                                                                                                |
@@ -578,6 +551,7 @@ Apply maintenance updates to deployed environment
 +-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 Appendix
+========
 
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **№**   | **Resource title**                                                                                                                                      |
@@ -586,6 +560,6 @@ Appendix
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 2       | `Introduction to XtremIO Guide <https://support.emc.com/docu50574_White-Paper:-Introduction-to-the-EMC-XtremIO-All-Flash-Array.pdf?language=en_US>`__   |
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 4       | `XtremIO Kilo Open Stack Cinder Driver Guide <http://docs.openstack.org/kilo/config-reference/content/XtremIO-cinder-driver.html>`__                    |
+| 3       | `XtremIO Kilo Open Stack Cinder Driver Guide <http://docs.openstack.org/kilo/config-reference/block-storage/drivers/emc-xtremio-driver.html>`__     |
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 
