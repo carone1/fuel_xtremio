@@ -43,13 +43,13 @@ Troubleshooting Guide
 
 [Troubleshooting Guide] (doc/source/troubleshooting.rst)
 
-Tesplan
-=======
+Test Plan
+=========
 
-[Testplan] (doc/source/test-plan.rst)
+[Test Plan] (doc/source/test-plan.rst)
 
-Testplan Report
-===============
+Test Plan Report
+================
 
-[Testplan Report] (doc/source/test-plan-report.rst)
+[Test Plan Report] (doc/source/test-plan-report.rst)
 
