@@ -31,6 +31,13 @@ class plugin_emc_xtremio::controller {
   $xtrem_io_section = 'XtremIO'
   $default_section  = 'DEFAULT'
 
+  if $plugin_settings['xtremio_protocol'] == 'FC'{
+    $xtremio_protocol = 'cinder.volume.drivers.emc.xtremio.XtremIOFibreChannelDriver'
+  }
+  else{
+    $xtremio_protocol = 'cinder.volume.drivers.emc.xtremio.XtremIOISCSIDriver'
+  }
+
   ini_subsetting {'enable_cinder_xtremio_backend':
     ensure             => present,
     section            => 'DEFAULT',
@@ -41,7 +48,6 @@ class plugin_emc_xtremio::controller {
     subsetting_separator => ',',
   }
 
-
   # XtremIO Section
   cinder_config {
     "${xtrem_io_section}/san_ip":                           value => $plugin_settings['emc_xms_ip'];
@@ -49,7 +55,7 @@ class plugin_emc_xtremio::controller {
     "${xtrem_io_section}/san_password":                     value => $plugin_settings['emc_password'];
     "${xtrem_io_section}/use_multipath_for_image_xfer":     value => 'True';
     "${xtrem_io_section}/host":                             value => 'cinder';
-    "${xtrem_io_section}/volume_driver":                    value => 'cinder.volume.drivers.emc.xtremio.XtremIOISCSIDriver';
+    "${xtrem_io_section}/volume_driver":                    value => $xtremio_protocol;
     "${xtrem_io_section}/volume_backend_name":              value => $volume_type;
   }
 

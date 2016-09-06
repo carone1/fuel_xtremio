@@ -3,7 +3,19 @@ attributes:
     # Settings group can be one of "general", "security", "compute", "network",
     # "storage", "logging", "openstack_services" and "other".
     group: 'storage'
-
+  xtremio_protocol:
+    value: 'FC'
+    label: 'Protocol Type'
+    description: ''
+    weight: 25
+    type: 'radio'
+    values:
+      - data: 'FC'
+        label: 'Fibre Channel'
+        description: 'Use Fibre Channel for XtremIO block storage'
+      - data: 'iSCSI'
+        label: 'iSCSI'
+        description: 'Use iSCSI for XtremIO block storage'
   emc_username:
     value: "username"
     label: "XMS username"
@@ -24,13 +36,13 @@ attributes:
       error: "Password field cannot be empty"
   emc_xms_ip:
     value: ""
-    label: "XMS IP"
-    description: "EMC XtremIO XMS IP address."
+    label: "XMS Address"
+    description: "EMC XtremIO XMS URL."
     weight: 90
     type: "text"
     regex:
-      source: '^(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)$'
-      error: "Specify valid IPv4 address"
+      source: '\S'
+      error: "XMS URL cannot be empty"
   emc_cluster_name:
     value: ""
     label: "XtremIO cluster name"
