@@ -140,7 +140,7 @@ Developer’s specification
 -------------------------
 
 Is available on `*GitHub
-repository* <https://github.com/carone1/fuel-xtremio>`__.
+repository* <https://github.com/carone1/fuel_xtremio>`__.
 
 Limitations
 -----------
@@ -556,7 +556,7 @@ Appendix
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | **№**   | **Resource title**                                                                                                                                      |
 +=========+=========================================================================================================================================================+
-| 1       | `XtremIO Fuel Plugin GitHub Repository <https://github.com/carone1/fuel-xtremio>`__                                                                     |
+| 1       | `XtremIO Fuel Plugin GitHub Repository <https://github.com/carone1/fuel_xtremio>`__                                                                     |
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
 | 2       | `Introduction to XtremIO Guide <https://support.emc.com/docu50574_White-Paper:-Introduction-to-the-EMC-XtremIO-All-Flash-Array.pdf?language=en_US>`__   |
 +---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
