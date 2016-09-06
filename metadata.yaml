@@ -12,7 +12,7 @@ groups: ['storage::cinder']
 # Licenses
 licenses: ['Apache License, Version 2.0']
 # Homepage
-homepage: 'https://github.com/carone1/fuel-xtremio'
+homepage: 'https://github.com/carone1/fuel_xtremio'
 # Authors
 authors: ['Eric Caron <eric.caron@emc.com>']
 # Change `false` to `true` if the plugin can be installed in the environment
