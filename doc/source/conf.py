@@ -7,8 +7,8 @@ master_doc = 'index'
 project = u'EMC XtremIO plugin for Fuel'
 copyright = u'2016, EMC Inc.'
 
-version = '2.0'
-release = '2.0-2.0.0-1'
+version = '3.0'
+release = '3.0-3.0.0-1'
 
 pygments_style = 'sphinx'
 
@@ -21,10 +21,11 @@ latex_documents = [
 # Configuration for the latex/pdf docs.
 latex_elements = {
     'papersize': 'a4paper',
-    'pointsize': '11pt',
+    'pointsize': '14pt',
     # remove blank pages
     'classoptions': ',openany,oneside',
     'babel': '\\usepackage[english]{babel}',
+    'textcomp': '\\usepackage[force,almostfull]{textcomp}',
 }
 
 if LooseVersion(sphinx_version) >= LooseVersion('1.3.1'):
