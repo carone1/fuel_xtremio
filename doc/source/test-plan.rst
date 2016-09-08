@@ -1,29 +1,29 @@
 
-**Test Plan**
+=========
+Test Plan
+=========
 
-**For**
-
-**XtremIO Fuel** **Plugin 3.0.0**
-
-**Mirantis OpenStack 9.0**
+**For XtremIO Fuel Plugin 3.0.0 & Mirantis OpenStack 9.0**
 
 .. image:: images/emc-logo.png
 
 .. image:: images/fuel-logo.png
 
-**Revision history**
+Revision history
+----------------
 
 +---------------+---------------------+------------------------+--------------------+
 | **Version**   | **Revision date**   | **Editor**             | **Comment**        |
 +===============+=====================+========================+====================+
-| 0.1           | 26.08.2016          | Eric Caron             | Initial version.   |
+| 0.1           | 07.09.2016          | Eric Caron             | Initial version.   |
 |               |                     |                        |                    |
 |               |                     | (eric.caron@emc.com)   |                    |
 +---------------+---------------------+------------------------+--------------------+
 
 **XtremIO Plugin**
 
-**Executive Overview**
+Executive Overview
+------------------
 
 Flash storage is an attractive method for boosting I/O performance in
 the data center.
@@ -139,8 +139,8 @@ XtremIO Management Server (XMS) APIs.
 Developer’s specification
 -------------------------
 
-Is available on `*GitHub
-repository* <https://github.com/carone1/fuel_xtremio>`__.
+Is available on
+`*GitHub repository* <https://github.com/carone1/fuel-xtremio>`__
 
 Limitations
 -----------
@@ -193,7 +193,7 @@ Product compatibility matrix
 +--------------------------+---------------------------+----------------------------+-------------------+
 | XtremIO Plugin version   | Compatible Fuel version   | OpenStack and OS Version   | XtremIO version   |
 +==========================+===========================+============================+===================+
-| 3.0.0                    | 9.0                       | Mitaka on Ubuntu14.04      | 4.2 (build 34)    |
+| 3.0.0                    | 9.0                       | Mitaka on Ubuntu14.04      | 4.2 build 34      |
 +--------------------------+---------------------------+----------------------------+-------------------+
 
 System Testing
@@ -202,300 +202,283 @@ System Testing
 Install plugin and deploy environment
 -------------------------------------
 
-+-------------------+-----------------------------------------------------------------------------------------------------------+
-| Test Case ID      | install\_plugin\_deploy\_env                                                                              |
-+===================+===========================================================================================================+
-| Steps             | Upload plugin to the master fuel node                                                                     |
-|                   |                                                                                                           |
-|                   | Install plugin                                                                                            |
-|                   |                                                                                                           |
-|                   | Ensure that plugin is installed successfully using cli                                                    |
-|                   |                                                                                                           |
-|                   | Create environment with enabled XtremIO plugin in fuel UI                                                 |
-|                   |                                                                                                           |
-|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/other                                    |
-|                   |                                                                                                           |
-|                   | Specify \`XMS username\`                                                                                  |
-|                   |                                                                                                           |
-|                   | Specify \`XMS password\`                                                                                  |
-|                   |                                                                                                           |
-|                   | Specify \`XMS IP\`                                                                                        |
-|                   |                                                                                                           |
-|                   | Specify \`XtremIO Cluster Name\` if XMS manages multiple clusters                                         |
-|                   |                                                                                                           |
-|                   | Add 3 node with Controller and Cinder role                                                                |
-|                   |                                                                                                           |
-|                   | Add 1 node with Compute role                                                                              |
-|                   |                                                                                                           |
-|                   | Apply network settings                                                                                    |
-|                   |                                                                                                           |
-|                   | IP addresses and assigning networks to interfaces depending on actual network environment of test lab     |
-|                   |                                                                                                           |
-|                   | Run network verification                                                                                  |
-|                   |                                                                                                           |
-|                   | Deploy the cluster                                                                                        |
-|                   |                                                                                                           |
-|                   | Login to Horizon with the admin user when the OpenStack deployment is finished                            |
-|                   |                                                                                                           |
-|                   | Create volume using \`TestVM\` image                                                                      |
-|                   |                                                                                                           |
-|                   | Create empty 1GB volume                                                                                   |
-|                   |                                                                                                           |
-|                   | Create/Run instance using volume created with TestVM image                                                |
-|                   |                                                                                                           |
-|                   | Delete volumes and instances created above                                                                |
-|                   |                                                                                                           |
-|                   | Run OSTF excepting test with launch of instances                                                          |
-+-------------------+-----------------------------------------------------------------------------------------------------------+
-| Expected Result   | Plugin is installed successfully, cluster is created, network verification.                               |
-|                   |                                                                                                           |
-|                   | XtremIO cluster has:                                                                                      |
-|                   |                                                                                                           |
-|                   | One empty 1GB volume                                                                                      |
-|                   |                                                                                                           |
-|                   | One volume matching TestVM image size                                                                     |
-|                   |                                                                                                           |
-|                   | Volume and instance are created and deleted successfully via Horizon.                                     |
-|                   |                                                                                                           |
-|                   | OSTF are passed. Tests with launch of instances should be excluded because they require special flavor.   |
-+-------------------+-----------------------------------------------------------------------------------------------------------+
++-------------------+----------------------------------------------------------------------------------+
+| Test Case ID      | install\_plugin\_deploy\_env                                                     |
++===================+==================================================================================+
+| Steps             | Upload plugin to the master fuel node                                            |
+|                   |                                                                                  |
+|                   | Install plugin                                                                   |
+|                   |                                                                                  |
+|                   | Ensure that plugin is installed successfully using cli                           |
+|                   |                                                                                  |
+|                   | Create environment with enabled XtremIO plugin in fuel UI                        |
+|                   |                                                                                  |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings other           |
+|                   |                                                                                  |
+|                   | Specify \`XMS username\` \`XMS password\` \`XMS IP\`                             |
+|                   |                                                                                  |
+|                   | Specify \`XtremIO Cluster Name\` if XMS manages multiple clusters                |
+|                   |                                                                                  |
+|                   | Add 3 node with Controller and Cinder role                                       |
+|                   |                                                                                  |
+|                   | Add 1 node with Compute role                                                     |
+|                   |                                                                                  |
+|                   | Apply network settings                                                           |
+|                   |                                                                                  |
+|                   | IP addresses and assigning networks to interfaces depending on                   |
+|                   | actual network environment of test lab                                           |
+|                   |                                                                                  |
+|                   | Run network verification                                                         |
+|                   |                                                                                  |
+|                   | Deploy the cluster                                                               |
+|                   |                                                                                  |
+|                   | Login to Horizon with the admin user when the OpenStack deployment is finished   |
+|                   |                                                                                  |
+|                   | Create volume using \`TestVM\` image and empty 1GB volume                        |
+|                   |                                                                                  |
+|                   | Create/Run instance using volume created with TestVM image                       |
+|                   |                                                                                  |
+|                   | Delete volumes and instances created above                                       |
+|                   |                                                                                  |
+|                   | Run OSTF tests                                                                   |
++-------------------+----------------------------------------------------------------------------------+
+| Expected Result   | Plugin is installed successfully, cluster is created, network verification.      |
+|                   |                                                                                  |
+|                   | XtremIO cluster has:                                                             |
+|                   |                                                                                  |
+|                   | One empty 1GB volume                                                             |
+|                   |                                                                                  |
+|                   | One volume matching TestVM image size                                            |
+|                   |                                                                                  |
+|                   | Volume and instance are created and deleted successfully via Horizon.            |
+|                   |                                                                                  |
+|                   | OSTF are passed. Tests with launch of instances should be excluded because       |
+|                   | they require special flavor.                                                     |
++-------------------+----------------------------------------------------------------------------------+
 
 Modifying env with enabled plugin (removing/adding controller nodes)
 --------------------------------------------------------------------
 
-+-------------------+-----------------------------------------------------------------------------------------------------------+
-| Test Case ID      |     modify\_env\_with\_plugin\_remove\_add\_controller\_storage                                           |
-+===================+===========================================================================================================+
-| Environment       | Fuel master node (w/ 50GB Disk, 2 Network interfaces [Mgmt, PXE] )                                        |
-|                   |                                                                                                           |
-|                   | OpenStack Controller #1 node                                                                              |
-|                   |                                                                                                           |
-|                   | OpenStack Controller #2 node                                                                              |
-|                   |                                                                                                           |
-|                   | OpenStack Controller #3 node                                                                              |
-|                   |                                                                                                           |
-|                   | OpenStack Compute                                                                                         |
-|                   |                                                                                                           |
-|                   | Network and disks configuration is the same as described in common section                                |
-+-------------------+-----------------------------------------------------------------------------------------------------------+
-| Steps             | Upload plugin to the master fuel node                                                                     |
-|                   |                                                                                                           |
-|                   | Install plugin                                                                                            |
-|                   |                                                                                                           |
-|                   | Ensure that plugin is installed successfully using cli                                                    |
-|                   |                                                                                                           |
-|                   | Create environment with enabled XtremIO plugin in fuel UI                                                 |
-|                   |                                                                                                           |
-|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/other                                    |
-|                   |                                                                                                           |
-|                   | Specify \`XMS username\`                                                                                  |
-|                   |                                                                                                           |
-|                   | Specify \`XMS password\`                                                                                  |
-|                   |                                                                                                           |
-|                   | Specify \`XMS IP\`                                                                                        |
-|                   |                                                                                                           |
-|                   | Specify \`XtremIO Cluster Name\` if XMS manages multiple clusters                                         |
-|                   |                                                                                                           |
-|                   | Add 3 nodes with Controller & Cinder roles                                                                |
-|                   |                                                                                                           |
-|                   | Add 1 node with Compute role                                                                              |
-|                   |                                                                                                           |
-|                   | Apply network settings                                                                                    |
-|                   |                                                                                                           |
-|                   | IP addresses and assigning networks to interfaces depending on actual network environment of test lab     |
-|                   |                                                                                                           |
-|                   | Run network verification                                                                                  |
-|                   |                                                                                                           |
-|                   | Deploy the cluster                                                                                        |
-|                   |                                                                                                           |
-|                   | Run OSTF excepting test with launch of instances                                                          |
-|                   |                                                                                                           |
-|                   | Login to Horizon with the admin user when the OpenStack deployment is finished                            |
-|                   |                                                                                                           |
-|                   | Create volume using \`TestVM\` image                                                                      |
-|                   |                                                                                                           |
-|                   | Create empty 1GB volume                                                                                   |
-|                   |                                                                                                           |
-|                   | Create/Run instance using volume created with TestVM image                                                |
-|                   |                                                                                                           |
-|                   | Delete volumes and instances created above                                                                |
-|                   |                                                                                                           |
-|                   | Remove 1 Controller/Cinder node.                                                                          |
-|                   |                                                                                                           |
-|                   | Re-deploy cluster                                                                                         |
-|                   |                                                                                                           |
-|                   | Run OSTF excepting test with launch of instances                                                          |
-|                   |                                                                                                           |
-|                   | Login to Horizon with the admin user when the OpenStack deployment is finished                            |
-|                   |                                                                                                           |
-|                   | Create volume using \`TestVM\` image                                                                      |
-|                   |                                                                                                           |
-|                   | Create empty 1GB volume                                                                                   |
-|                   |                                                                                                           |
-|                   | Create/Run instance using volume created with TestVM image                                                |
-|                   |                                                                                                           |
-|                   | Delete volumes and instances created above                                                                |
-|                   |                                                                                                           |
-|                   | Add 1 new node with Controller &Cinder roles                                                              |
-|                   |                                                                                                           |
-|                   | Re-deploy cluster                                                                                         |
-|                   |                                                                                                           |
-|                   | Run OSTF excepting test with launch of instances                                                          |
-|                   |                                                                                                           |
-|                   | Login to Horizon with the admin user when the OpenStack deployment is finished                            |
-|                   |                                                                                                           |
-|                   | Create volume using \`TestVM\` image                                                                      |
-|                   |                                                                                                           |
-|                   | Create empty 1GB volume                                                                                   |
-|                   |                                                                                                           |
-|                   | Create/Run instance using volume created with TestVM image                                                |
-|                   |                                                                                                           |
-|                   | Delete volumes and instances created above                                                                |
-+-------------------+-----------------------------------------------------------------------------------------------------------+
-| Expected Result   | Plugin is installed successfully, cluster is created, network verification.                               |
-|                   |                                                                                                           |
-|                   | XtremIO cluster has:                                                                                      |
-|                   |                                                                                                           |
-|                   | One empty 1GB volume                                                                                      |
-|                   |                                                                                                           |
-|                   | One volume matching TestVM image size                                                                     |
-|                   |                                                                                                           |
-|                   | Volume and instance are created and deleted successfully via Horizon.                                     |
-|                   |                                                                                                           |
-|                   | OSTF are passed. Tests with launch of instances should be excluded because they require special flavor.   |
-+-------------------+-----------------------------------------------------------------------------------------------------------+
++-------------------+----------------------------------------------------------------------------------+
+| Test Case ID      |     modify\_env\_with\_plugin\_remove\_add\_controller\_storage                  |
++===================+==================================================================================+
+| Environment       | Fuel master node (w 50GB Disk, 2 Network interfaces [Mgmt, PXE] )                |
+|                   |                                                                                  |
+|                   | OpenStack Controller #1 node                                                     |
+|                   |                                                                                  |
+|                   | OpenStack Controller #2 node                                                     |
+|                   |                                                                                  |
+|                   | OpenStack Controller #3 node                                                     |
+|                   |                                                                                  |
+|                   | OpenStack Compute                                                                |
+|                   |                                                                                  |
+|                   | Network and disks configuration is the same as described in common section       |
++-------------------+----------------------------------------------------------------------------------+
+| Steps             | Upload plugin to the master fuel node                                            |
+|                   |                                                                                  |
+|                   | Install plugin                                                                   |
+|                   |                                                                                  |
+|                   | Ensure that plugin is installed successfully using cli                           |
+|                   |                                                                                  |
+|                   | Create environment with enabled XtremIO plugin in fuel UI                        |
+|                   |                                                                                  |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/other           |
+|                   |                                                                                  |
+|                   | Specify \`XMS username\`  \`XMS password\` \`XMS IP\`                            |
+|                   |                                                                                  |
+|                   | Specify \`XtremIO Cluster Name\` if XMS manages multiple clusters                |
+|                   |                                                                                  |
+|                   | Add 3 nodes with Controller & Cinder roles                                       |
+|                   |                                                                                  |
+|                   | Add 1 node with Compute role                                                     |
+|                   |                                                                                  |
+|                   | Apply network settings                                                           |
+|                   |                                                                                  |
+|                   | IP addresses and assigning networks to interfaces depending on actual            |
+|                   | network environment of test lab                                                  |
+|                   |                                                                                  |
+|                   | Run network verification                                                         |
+|                   |                                                                                  |
+|                   | Deploy the cluster and run OSTf tests                                            |
+|                   |                                                                                  |
+|                   | Login to Horizon with the admin user when the OpenStack deployment is finished   |
+|                   |                                                                                  |
+|                   | Create volume using \`TestVM\` image  and empty 1GB volume                       |
+|                   |                                                                                  |
+|                   | Create/Run instance using volume created with TestVM image                       |
+|                   |                                                                                  |
+|                   | Delete volumes and instances created above                                       |
+|                   |                                                                                  |
+|                   | Remove 1 Controller/Cinder node.                                                 |
+|                   |                                                                                  |
+|                   | Re-deploy cluster and run OSTF tests                                             |
+|                   |                                                                                  |
+|                   | Login to Horizon with the admin user when the OpenStack deployment is finished   |
+|                   |                                                                                  |
+|                   | Create volume using \`TestVM\` image                                             |
+|                   |                                                                                  |
+|                   | Create empty 1GB volume                                                          |
+|                   |                                                                                  |
+|                   | Create/Run instance using volume created with TestVM image                       |
+|                   |                                                                                  |
+|                   | Delete volumes and instances created above                                       |
+|                   |                                                                                  |
+|                   | Add 1 new node with Controller & Cinder roles                                    |
+|                   |                                                                                  |
+|                   | Re-deploy cluster and run OSTf tests                                             |
+|                   |                                                                                  |
+|                   | Login to Horizon with the admin user when the OpenStack deployment is finished   |
+|                   |                                                                                  |
+|                   | Create volume using \`TestVM\` image and empty 1GB volume                        |
+|                   |                                                                                  |
+|                   | Create/Run instance using volume created with TestVM image                       |
+|                   |                                                                                  |
+|                   | Delete volumes and instances created above                                       |
++-------------------+----------------------------------------------------------------------------------+
+
++-------------------+----------------------------------------------------------------------------------+
+| Test Case ID      | modify\_env\_with\_plugin\_remove\_add\_controller\_storage cont.                |
++===================+==================================================================================+
+| Expected Result   | Plugin is installed successfully, cluster is created, network verification.      |
+|                   |                                                                                  |
+|                   | XtremIO cluster has:                                                             |
+|                   |                                                                                  |
+|                   | One empty 1GB volume                                                             |
+|                   |                                                                                  |
+|                   | One volume matching TestVM image size                                            |
+|                   |                                                                                  |
+|                   | Volume and instance are created and deleted successfully via Horizon.            |
+|                   |                                                                                  |
+|                   | OSTF are passed.                                                                 |
++-------------------+----------------------------------------------------------------------------------+
 
 Modifying env with enabled plugin (removing/adding compute node)
 ----------------------------------------------------------------
 
-+-------------------+-----------------------------------------------------------------------------------------------------------+
-| Test Case ID      |     modify\_env\_with\_plugin\_remove\_add\_compute                                                       |
-+===================+===========================================================================================================+
-| Environment       | Fuel master node (w/ 50GB Disk, 2 Network interfaces [Mgmt, PXE] )                                        |
-|                   |                                                                                                           |
-|                   | OpenStack Controller #1 node                                                                              |
-|                   |                                                                                                           |
-|                   | OpenStack Controller #2 node                                                                              |
-|                   |                                                                                                           |
-|                   | OpenStack Controller #3 node                                                                              |
-|                   |                                                                                                           |
-|                   | OpenStack Compute                                                                                         |
-|                   |                                                                                                           |
-|                   |     Network and disks configuration is the same as described in common section                            |
-+-------------------+-----------------------------------------------------------------------------------------------------------+
-| Steps             | Upload plugin to the master fuel node                                                                     |
-|                   |                                                                                                           |
-|                   | Install plugin                                                                                            |
-|                   |                                                                                                           |
-|                   | Ensure that plugin is installed successfully using cli                                                    |
-|                   |                                                                                                           |
-|                   | Create environment with enabled XtremIO plugin in fuel UI                                                 |
-|                   |                                                                                                           |
-|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/other                                    |
-|                   |                                                                                                           |
-|                   | Specify \`XMS username\`                                                                                  |
-|                   |                                                                                                           |
-|                   | Specify \`XMS password\`                                                                                  |
-|                   |                                                                                                           |
-|                   | Specify \`XMS IP\`                                                                                        |
-|                   |                                                                                                           |
-|                   | Specify \`XtremIO Cluster Name\` if XMS manages multiple clusters                                         |
-|                   |                                                                                                           |
-|                   | Add 3 nodes with Controller & Cinder roles                                                                |
-|                   |                                                                                                           |
-|                   | Add 1 node with Compute role                                                                              |
-|                   |                                                                                                           |
-|                   | Apply network settings                                                                                    |
-|                   |                                                                                                           |
-|                   | IP addresses and assigning networks to interfaces depending on actual network environment of test lab     |
-|                   |                                                                                                           |
-|                   | Run network verification                                                                                  |
-|                   |                                                                                                           |
-|                   | Deploy the cluster                                                                                        |
-|                   |                                                                                                           |
-|                   | Run OSTF excepting test with launch of instances                                                          |
-|                   |                                                                                                           |
-|                   | Login to Horizon with the admin user when the OpenStack deployment is finished                            |
-|                   |                                                                                                           |
-|                   | Create volume using \`TestVM\` image                                                                      |
-|                   |                                                                                                           |
-|                   | Create empty 1GB volume                                                                                   |
-|                   |                                                                                                           |
-|                   | Create/Run instance using volume created with TestVM image                                                |
-|                   |                                                                                                           |
-|                   | Delete volumes and instances created above                                                                |
-|                   |                                                                                                           |
-|                   | Remove Compute node.                                                                                      |
-|                   |                                                                                                           |
-|                   | Re-deploy cluster                                                                                         |
-|                   |                                                                                                           |
-|                   | Run OSTF excepting test with launch of instances                                                          |
-|                   |                                                                                                           |
-|                   | Login to Horizon with the admin user when the OpenStack deployment is finished                            |
-|                   |                                                                                                           |
-|                   | Create volume using \`TestVM\` image                                                                      |
-|                   |                                                                                                           |
-|                   | Create empty 1GB volume                                                                                   |
-|                   |                                                                                                           |
-|                   | Create/Run instance using volume created with TestVM image                                                |
-|                   |                                                                                                           |
-|                   | Delete volumes and instances created above                                                                |
-|                   |                                                                                                           |
-|                   | Add new node with Compute role                                                                            |
-|                   |                                                                                                           |
-|                   | Re-deploy cluster                                                                                         |
-|                   |                                                                                                           |
-|                   | Run OSTF excepting test with launch of instances                                                          |
-|                   |                                                                                                           |
-|                   | Login to Horizon with the admin user when the OpenStack deployment is finished                            |
-|                   |                                                                                                           |
-|                   | Create volume using \`TestVM\` image                                                                      |
-|                   |                                                                                                           |
-|                   | Create empty 1GB volume                                                                                   |
-|                   |                                                                                                           |
-|                   | Create/Run instance using volume created with TestVM image                                                |
-|                   |                                                                                                           |
-|                   | Delete volumes and instances created above                                                                |
-+-------------------+-----------------------------------------------------------------------------------------------------------+
-| Expected Result   | Plugin is installed successfully, cluster is created, network verification.                               |
-|                   |                                                                                                           |
-|                   | XtremIO cluster has:                                                                                      |
-|                   |                                                                                                           |
-|                   | One empty 1GB volume                                                                                      |
-|                   |                                                                                                           |
-|                   | One volume matching TestVM image size                                                                     |
-|                   |                                                                                                           |
-|                   | Volume and instance are created and deleted successfully via Horizon.                                     |
-|                   |                                                                                                           |
-|                   | OSTF are passed. Tests with launch of instances should be excluded because they require special flavor.   |
-+-------------------+-----------------------------------------------------------------------------------------------------------+
++-------------------+----------------------------------------------------------------------------------+
+| Test Case ID      |     modify\_env\_with\_plugin\_remove\_add\_compute                              |
++===================+==================================================================================+
+| Environment       | Fuel master node (w 50GB Disk, 2 Network interfaces [Mgmt, PXE] )                |
+|                   |                                                                                  |
+|                   | OpenStack Controller #1 node                                                     |
+|                   |                                                                                  |
+|                   | OpenStack Controller #2 node                                                     |
+|                   |                                                                                  |
+|                   | OpenStack Controller #3 node                                                     |
+|                   |                                                                                  |
+|                   | OpenStack Compute                                                                |
+|                   |                                                                                  |
+|                   | Network and disks configuration is the same as described in common section       |
++-------------------+----------------------------------------------------------------------------------+
+| Steps             | Upload plugin to the master fuel node                                            |
+|                   |                                                                                  |
+|                   | Install plugin                                                                   |
+|                   |                                                                                  |
+|                   | Ensure that plugin is installed successfully using cli                           |
+|                   |                                                                                  |
+|                   | Create environment with enabled XtremIO plugin in fuel UI                        |
+|                   |                                                                                  |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/other           |
+|                   |                                                                                  |
+|                   | Specify \`XMS username\`  \`XMS password\`   \`XMS IP\`                          |
+|                   |                                                                                  |
+|                   | Specify \`XtremIO Cluster Name\` if XMS manages multiple clusters                |
+|                   |                                                                                  |
+|                   | Add 3 nodes with Controller & Cinder roles                                       |
+|                   |                                                                                  |
+|                   | Add 1 node with Compute role                                                     |
+|                   |                                                                                  |
+|                   | Apply network settings                                                           |
+|                   |                                                                                  |
+|                   | IP addresses and assigning networks to interfaces depending on actual            |
+|                   | network environment of test lab                                                  |
+|                   |                                                                                  |
+|                   | Run network verification                                                         |
+|                   |                                                                                  |
+|                   | Deploy the cluster and run OSTF tests                                            |
+|                   |                                                                                  |
+|                   | Login to Horizon with the admin user when the OpenStack deployment is finished   |
+|                   |                                                                                  |
+|                   | Create volume using \`TestVM\` image                                             |
+|                   |                                                                                  |
+|                   | Create empty 1GB volume                                                          |
+|                   |                                                                                  |
+|                   | Create/Run instance using volume created with TestVM image                       |
+|                   |                                                                                  |
+|                   | Delete volumes and instances created above                                       |
+|                   |                                                                                  |
+|                   | Remove Compute node.                                                             |
+|                   |                                                                                  |
++-------------------+----------------------------------------------------------------------------------+
+| Steps Continue    | Re-deploy cluster and run OSTf tests                                             |
+|                   |                                                                                  |
+|                   | Login to Horizon with the admin user when the OpenStack deployment is finished   |
+|                   |                                                                                  |
+|                   | Create volume using \`TestVM\` image                                             |
+|                   |                                                                                  |
+|                   | Create empty 1GB volume                                                          |
+|                   |                                                                                  |
+|                   | Create/Run instance using volume created with TestVM image                       |
+|                   |                                                                                  |
+|                   | Delete volumes and instances created above                                       |
+|                   |                                                                                  |
+|                   | Add new node with Compute role                                                   |
+|                   |                                                                                  |
+|                   | Re-deploy cluster and run OSTF tests                                             |
+|                   |                                                                                  |
+|                   | Login to Horizon with the admin user when the OpenStack deployment is finished   |
+|                   |                                                                                  |
+|                   | Create volume using \`TestVM\` image  and create empty 1GB volume                |
+|                   |                                                                                  |
+|                   | Create/Run instance using volume created with TestVM image                       |
+|                   |                                                                                  |
+|                   | Delete volumes and instances created above                                       |
++-------------------+----------------------------------------------------------------------------------+
+
++-------------------+----------------------------------------------------------------------------------+
+| Test Case ID      | modify\_env\_with\_plugin\_remove\_add\_compute cont.                            |
++===================+==================================================================================+
+| Expected Result   | Plugin is installed successfully, cluster is created, network verification.      |
+|                   |                                                                                  |
+|                   | XtremIO cluster has:                                                             |
+|                   |                                                                                  |
+|                   | One empty 1GB volume                                                             |
+|                   |                                                                                  |
+|                   | One volume matching TestVM image size                                            |
+|                   |                                                                                  |
+|                   | Volume and instance are created and deleted successfully via Horizon.            |
+|                   |                                                                                  |
+|                   | OSTF are passed.                                                                 |
++-------------------+----------------------------------------------------------------------------------+
 
 Uninstall of plugin with deployed environment
 ---------------------------------------------
 
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Test Case ID      | uninstall\_plugin\_with\_deployed\_env                                                                                                                    |
-+===================+===========================================================================================================================================================+
-| Steps             | Install plugin                                                                                                                                            |
-|                   |                                                                                                                                                           |
-|                   | Deploy environment with enabled plugin functionality                                                                                                      |
-|                   |                                                                                                                                                           |
-|                   | Run OSTF excepting test with launch of instances                                                                                                          |
-|                   |                                                                                                                                                           |
-|                   | Try to delete plugin and ensure that present in cli alert: "400 Client Error: Bad Request (Can't delete plugin which is enabled for some environment.)"   |
-|                   |                                                                                                                                                           |
-|                   | Remove environment                                                                                                                                        |
-|                   |                                                                                                                                                           |
-|                   | Remove plugin                                                                                                                                             |
-|                   |                                                                                                                                                           |
-|                   | Check that it was successfully removed                                                                                                                    |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Expected Result   | Plugin was installed successfully.                                                                                                                        |
-|                   |                                                                                                                                                           |
-|                   | Alert present when trying to delete plugin attached to environment.                                                                                       |
-|                   |                                                                                                                                                           |
-|                   | Plugin is removed when environment is reset                                                                                                               |
-+-------------------+-----------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------+----------------------------------------------------------------------------------+
+| Test Case ID      | uninstall\_plugin\_with\_deployed\_env                                           |
++===================+==================================================================================+
+| Steps             | Install plugin                                                                   |
+|                   |                                                                                  |
+|                   | Deploy environment with enabled plugin functionality                             |
+|                   |                                                                                  |
+|                   | Run OSTF tests                                                                   |
+|                   |                                                                                  |
+|                   | Try to delete plugin and ensure that present in cli alert :                      |
+|                   | "400 Client Error: Bad Request"                                                  |
+|                   | "Can't delete plugin which is enabled for some environment."                     |
+|                   |                                                                                  |
+|                   | Remove environment                                                               |
+|                   |                                                                                  |
+|                   | Remove plugin                                                                    |
+|                   |                                                                                  |
+|                   | Check that it was successfully removed                                           |
++-------------------+----------------------------------------------------------------------------------+
+| Expected Result   | Plugin was installed successfully.                                               |
+|                   |                                                                                  |
+|                   | Alert present when trying to delete plugin attached to environment.              |
+|                   |                                                                                  |
+|                   | Plugin is removed when environment is reset                                      |
++-------------------+----------------------------------------------------------------------------------+
 
 Uninstall of plugin
 -------------------
@@ -520,46 +503,55 @@ Upgrade/update
 Apply maintenance updates to deployed environment
 -------------------------------------------------
 
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Test Case ID      |     apply\_mu                                                                                                                                                                                  |
-+===================+================================================================================================================================================================================================+
-| Steps             | Install plugin                                                                                                                                                                                 |
-|                   |                                                                                                                                                                                                |
-|                   | Deploy environment with enabled plugin functionality                                                                                                                                           |
-|                   |                                                                                                                                                                                                |
-|                   | Run OSTF excepting test with launch of instances                                                                                                                                               |
-|                   |                                                                                                                                                                                                |
-|                   | Once environment is deployed, apply maintenance updates following `*the instructions.* <https://docs.mirantis.com/openstack/fuel/fuel-8.0/maintenance-updates.html%23maintenance-updates>`__   |
-|                   |                                                                                                                                                                                                |
-|                   | Make sure all nodes are in ready state and no regression is observed.                                                                                                                          |
-|                   |                                                                                                                                                                                                |
-|                   | Run OSTF excepting test with launch of instances                                                                                                                                               |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-| Expected Result   | Plugin is installed successfully at the Fuel Master node and the corresponding output appears in the CLI.                                                                                      |
-|                   |                                                                                                                                                                                                |
-|                   | Cluster is created and network verification check is passed.                                                                                                                                   |
-|                   |                                                                                                                                                                                                |
-|                   | Plugin is enabled and configured in the Fuel Web UI.                                                                                                                                           |
-|                   |                                                                                                                                                                                                |
-|                   | OSTF tests (Health Checks) are passed.                                                                                                                                                         |
-|                   |                                                                                                                                                                                                |
-|                   | Environment is deployed successfully.                                                                                                                                                          |
-|                   |                                                                                                                                                                                                |
-|                   | Maintenance Updates do not affect running services related to the plugin (e.g. the services aren't restarted).                                                                                 |
-|                   |                                                                                                                                                                                                |
-|                   | Cluster remains in the fully operational state after applying Maintenance Updates.                                                                                                             |
-+-------------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
++-------------------+----------------------------------------------------------------------------------+
+| Test Case ID      |     apply\_mu                                                                    |
++===================+==================================================================================+
+| Steps             | Install plugin                                                                   |
+|                   |                                                                                  |
+|                   | Deploy environment with enabled plugin functionality                             |
+|                   |                                                                                  |
+|                   | Run OSTF tests                                                                   |
+|                   |                                                                                  |
+|                   | Once environment is deployed, apply maintenance updates following                |
+|                   | `*the instructions.*                                                             |
+|                   | <https://docs.mirantis.com/openstack/fuel/fuel-8.0/                              |
+|                   | maintenance-updates.html%23maintenance-updates>`__                               |
+|                   |                                                                                  |
+|                   | Make sure all nodes are in ready state and no regression is observed.            |
+|                   |                                                                                  |
+|                   | Run OSTF tests                                                                   |
++-------------------+----------------------------------------------------------------------------------+
+| Expected Result   | Plugin is installed successfully at the Fuel Master node                         |
+|                   | and the corresponding output appears in the CLI.                                 |
+|                   |                                                                                  |
+|                   | Cluster is created and network verification check is passed.                     |
+|                   |                                                                                  |
+|                   | Plugin is enabled and configured in the Fuel Web UI.                             |
+|                   |                                                                                  |
+|                   | OSTF tests (Health Checks) are passed.                                           |
+|                   |                                                                                  |
+|                   | Environment is deployed successfully.                                            |
+|                   |                                                                                  |
+|                   | Maintenance Updates do not affect running services                               |
+|                   | related to the plugin (e.g. the services aren't restarted).                      |
+|                   |                                                                                  |
+|                   | Cluster remains in the fully operational state after applying                    |
+|                   | Maintenance Updates.                                                             |
++-------------------+----------------------------------------------------------------------------------+
 
 Appendix
-========
+--------
 
-+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| **№**   | **Resource title**                                                                                                                                      |
-+=========+=========================================================================================================================================================+
-| 1       | `XtremIO Fuel Plugin GitHub Repository <https://github.com/carone1/fuel_xtremio>`__                                                                     |
-+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 2       | `Introduction to XtremIO Guide <https://support.emc.com/docu50574_White-Paper:-Introduction-to-the-EMC-XtremIO-All-Flash-Array.pdf?language=en_US>`__   |
-+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-| 3       | `XtremIO Mitaka Open Stack Cinder Driver Guide <http://docs.openstack.org/mitaka/config-reference/block-storage/drivers/emc-xtremio-driver.html>`__     |
-+---------+---------------------------------------------------------------------------------------------------------------------------------------------------------+
-
++---------+--------------------------------------------------------------------------------------------+
+| **No**   | **Resource title**                                                                         |
++=========+============================================================================================+
+| 1       | `XtremIO Fuel Plugin GitHub Repository <https://github.com/carone1/fuel-xtremio>`__        |
++---------+--------------------------------------------------------------------------------------------+
+| 2       | `Introduction to XtremIO Guide                                                             |
+|         | <https://support.emc.com/                                                                  |
+|         | docu50574_White-Paper:-Introduction-to-the-EMC-XtremIO-All-Flash-Array.pdf>`__             |
++---------+--------------------------------------------------------------------------------------------+
+| 3       | `XtremIO Mitaka Open Stack Cinder Driver Guide                                             |
+|         | <http://docs.openstack.org/mitaka/                                                         |
+|         | config-reference/block-storage/drivers/emc-xtremio-driver.html>`__                         |
++---------+--------------------------------------------------------------------------------------------+

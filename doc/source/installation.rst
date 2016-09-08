@@ -3,7 +3,7 @@ Installation Guide
 ==================
 
 EMC XtremIO backend configuration
-============================================
+=================================
 
 Before starting a deployment, you have to preconfigure EMC XtremIO array and
 connect it properly to the environment. Both EMC XMS IPs and all iSCSI ports
