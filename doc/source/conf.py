@@ -21,10 +21,11 @@ latex_documents = [
 # Configuration for the latex/pdf docs.
 latex_elements = {
     'papersize': 'a4paper',
-    'pointsize': '11pt',
+    'pointsize': '14pt',
     # remove blank pages
     'classoptions': ',openany,oneside',
     'babel': '\\usepackage[english]{babel}',
+    'textcomp': '\\usepackage[force,almostfull]{textcomp}',
 }
 
 if LooseVersion(sphinx_version) >= LooseVersion('1.3.1'):
