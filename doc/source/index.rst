@@ -1,7 +1,7 @@
 .. _fuel_xtremio:
 
 ****************************************************************
-Guide to the EMC XtremIO Plugin version 3.0.0 for Fuel
+Guide to the EMC XtremIO Plugin version 1.0.0 for Fuel
 ****************************************************************
 
 This document provides instructions for installing, configuring and using
@@ -17,6 +17,7 @@ EMC XtremIO plugin for Fuel.
     configuration.rst
     guide.rst
     troubleshooting.rst
+    removal.rst
     test-plan.rst
     test-plan-report.rst
     appendix.rst
