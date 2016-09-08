@@ -1,4 +1,4 @@
-.. _fuel-xtremio:
+.. _fuel_xtremio:
 
 ****************************************************************
 Guide to the EMC XtremIO Plugin version 3.0.0 for Fuel
