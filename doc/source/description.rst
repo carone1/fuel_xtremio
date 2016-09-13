@@ -57,10 +57,10 @@ Release Notes
 +---------------------+-----------------------------------------------------------+
 |Version              | Comment                                                   |
 +=====================+===========================================================+
-| 3.0.0               | Initial version                                           |
+| 3.0-3.0.0-1         | Initial version                                           |
 +---------------------+-----------------------------------------------------------+
-| 3.0.1               | Fix bug where LVM service setings where overwritten by    |
+| 3.0-3.0.1-1         | Fix bug where LVM service setings where overwritten by    |
 |                     | EMC XtremIO plugin                                        |
 +---------------------+-----------------------------------------------------------+
-| 3.0.2               | Modified plugin to appear under Storage in Fuel UI        |
+| 3.0-3.0.2-1         | Modified plugin to appear under Storage in Fuel UI        |
 +---------------------+-----------------------------------------------------------+

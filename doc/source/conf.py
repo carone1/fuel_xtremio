@@ -8,7 +8,7 @@ project = u'EMC XtremIO plugin for Fuel'
 copyright = u'2016, EMC Inc.'
 
 version = '3.0'
-release = '3.0-3.0.0-1'
+release = '3.0-3.0.2-1'
 
 pygments_style = 'sphinx'
 
