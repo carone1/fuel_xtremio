@@ -2,7 +2,7 @@
 name: emc_xtremio
 title: EMC XtremIO driver for Cinder
 # Plugin version
-version: 3.0.1
+version: 3.0.2
 # Description
 description: Enables EMC XtremIO driver in Cinder
 # Required fuel version
