@@ -3,7 +3,7 @@
 Test Plan Report
 ================
 
-**For XtremIO Plugin 3.0.0 & Mirantis OpenStack 9.0**
+**For XtremIO Plugin 3.0-3.0.2-1 & Mirantis OpenStack 9.0**
 
 
 .. image:: images/emc-logo.png
@@ -12,19 +12,23 @@ Test Plan Report
 Revision History
 ----------------
 
-+---------------+---------------------+------------------------+-------------------+
-| **Version**   | **Revision date**   | **Editor**             | **Comment**       |
-+===============+=====================+========================+===================+
-| 1.0           | 09.07.2016          | Eric Caron             | Initial version   |
-|               |                     |                        |                   |
-|               |                     | (eric.caron@emc.com)   |                   |
-+---------------+---------------------+------------------------+-------------------+
++---------------+---------------------+------------------------+---------------------+
+| **Version**   | **Revision date**   | **Editor**             | **Comment**         |
++===============+=====================+========================+=====================+
+| 1.0           | 09.07.2016          | Eric Caron             | Initial version     |
+|               |                     |                        |                     |
+|               |                     | (eric.caron@emc.com)   |                     |
++---------------+---------------------+------------------------+---------------------+
+| 1.1           | 09.12.2016          | Eric Caron             | Integrated feedback |
+|               |                     |                        | provided by         |
+|               |                     | (eric.caron@dell.com)  | Mirantis            |
++---------------+---------------------+------------------------+---------------------+
 
 Document Purpose
 ----------------
 
 This document provides test run results for *System testing* of
-*XtremIO* Fuel Plugin *3.0.0* on Mirantis OpenStack *9.0*.
+*XtremIO* Fuel Plugin *3.0-3.0.2-1* on Mirantis OpenStack *9.0*.
 
 Test environment
 ----------------
@@ -32,12 +36,11 @@ Test environment
 The test lab should include 5 nodes. The following designations for the
 nodes:
 
-    1) Fuel master node (w/ 50GB Disk, 2 Network interfaces [Mgmt, PXE]
-    )
-    | 2) OpenStack Controller #1 node
-    | 3) OpenStack Controller #2 node
-    | 4) OpenStack Controller #3 node
-    | 5) OpenStack Compute node
+    1) Fuel master node (w/ 50GB Disk, 2 Network interfaces [Mgmt, PXE])
+    2) OpenStack Controller #1 node
+    3) OpenStack Controller #2 node
+    4) OpenStack Controller #3 node
+    5) OpenStack Compute node
 
 Each node shall have at least 2 CPUs, 4GB RAM, 80GB disks, 3 Network
 interfaces. The 3 interfaces will be used for the following purposes:
@@ -66,11 +69,11 @@ Storage Management application.
 Plugin's RPM
 ------------
 
-+------------------------------------+
-| **Name**                           |
-+====================================+
-| emc_xtremio-3.0-3.0.0-1.noarch.rpm |
-+------------------------------------+
++------------------------------------+----------------------------------+
+| **Name**                           |  MD5 Checksum                    |
++====================================+==================================+
+| emc_xtremio-3.0-3.0.2-1.noarch.rpm | 28a3fafcf35f7e3b9bf2ef6afdb90471 |
++------------------------------------+----------------------------------+
 
 Test Coverage and Metrics
 -------------------------
@@ -80,7 +83,7 @@ XtremIO Fuel Plugin System testing process had a test coverage of 100%.
 Test Results Summary
 --------------------
 
-The XtrtemIO plugin has the following system tests.
+The XtremIO plugin has the following system tests.
 
 Coverage of features
 ~~~~~~~~~~~~~~~~~~~~
@@ -88,13 +91,13 @@ Coverage of features
 +---------------------------------------------+-------------+
 | **Parameter**                               | **Value**   |
 +=============================================+=============+
-| Total quantity of executed test cases       | 6           |
+| Total quantity of executed test cases       | 7           |
 +---------------------------------------------+-------------+
-| Total quantity of not executed test cases   | 0           |
+| Total quantity of not executed test cases   | 1           |
 +---------------------------------------------+-------------+
 | Quantity of automated test cases            | 0           |
 +---------------------------------------------+-------------+
-| Quantity of not automated test cases        | 6           |
+| Quantity of not automated test cases        | 7           |
 +---------------------------------------------+-------------+
 
 Detailed testrun results
@@ -106,22 +109,27 @@ Detailed testrun results
 | 1          | install\_plugin            |              |              |               |               |
 |            | \_deploy\_env              |      *       |              |               |               |
 +------------+----------------------------+--------------+--------------+---------------+---------------+
-| 2          | modify\_env                |              |              |               |               |
+| 2          | create\_mirror             |              |              |               |               |
+|            | \_deploy\_env              |      *       |              |               |               |
++------------+----------------------------+--------------+--------------+---------------+---------------+
+| 3          | modify\_env                |              |              |               |               |
 |            | \_with\_plugin\_remove     |              |              |               |               |
 |            | \_add\_controller          |      *       |              |               |               |
 +------------+----------------------------+--------------+--------------+---------------+---------------+
-| 3          | modify\_env\_with          |              |              |               |               |
+| 4          | modify\_env\_with          |              |              |               |               |
 |            | \_plugin\_remove           |              |              |               |               |
 |            | \_add\_compute             |      *       |              |               |               |
 +------------+----------------------------+--------------+--------------+---------------+---------------+
-| 4          | uninstall\_plugin          |              |              |               |               |
+| 5          | uninstall\_plugin          |              |              |               |               |
 |            | \_with\_deployed\_env      |      *       |              |               |               |
 +------------+----------------------------+--------------+--------------+---------------+---------------+
-| 5          | uninstall\_plugin          |      *       |              |               |               |
+| 6          | uninstall\_plugin          |      *       |              |               |               |
 +------------+----------------------------+--------------+--------------+---------------+---------------+
-| 6          | apply\_mu                  |      *       |              |               |               |
+| 7          | apply\_mu                  |              |              |       *       | No update     |
+|            |                            |              |              |               | available for |
+|            |                            |              |              |               | Mirantis 9    |
 +------------+----------------------------+--------------+--------------+---------------+---------------+
-| Total      | 6                          |              |              |               |               |
+| Total      | 7                          |              |              |               |               |
 +------------+----------------------------+--------------+--------------+---------------+---------------+
 | Total, %   | 100                        |              |              |               |               |
 +------------+----------------------------+--------------+--------------+---------------+---------------+
@@ -130,4 +138,3 @@ Known issues
 ------------
 
 No known issues
-

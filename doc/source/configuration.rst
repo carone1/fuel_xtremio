@@ -15,11 +15,11 @@ EMC XtremIO configuration, see
 		2. configure network for one XMS controller
 		3. configure network for all iSCSI ports
 
-2. Create an environment with the default backend for Cinder. Do not add Cinder
-   role to any node, because all Cinder services will be run on Controllers.
-   For more information about environment creation, see `Mirantis OpenStack
-   User Guide - create a new environment <https://docs.mirantis.com/openstack/
-   fuel/fuel-8.0/pdf/Fuel-8.0-UserGuide.pdf>`_.
+2. Create an environment with the default backend for Cinder. Do not add node with 
+   only with the Cinder role, because all Cinder services must be colocated on
+   Controllers. For more information about environment creation, see `Mirantis OpenStack
+   User Guide - create a new environment  <https://docs.mirantis.com/openstack/
+   express/latest/pdf/Mirantis-OpenStack-Express-Operations.pdf>`_.
 
 
 3. Open Settings tab of the Fuel web UI and scroll the page down. Select the
@@ -44,4 +44,10 @@ EMC XtremIO configuration, see
 4. Adjust other environment settings to your requirements and deploy the
    environment.  For more information, see `Mirantis OpenStack User Guide -
    deploy changes <https://docs.mirantis.com/openstack/fuel/fuel-8.0/
-   operations.html>`_.
+   pdf/Fuel-8.0-UserGuide.pdf>`_.
+
+5. Before initiating the deployment step, a network verification should
+   be done to ensure all nodes in the environment can communicate properly
+   with each other.
+
+6. Deploy environment
