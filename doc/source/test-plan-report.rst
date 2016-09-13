@@ -91,7 +91,7 @@ Coverage of features
 +---------------------------------------------+-------------+
 | **Parameter**                               | **Value**   |
 +=============================================+=============+
-| Total quantity of executed test cases       | 7           |
+| Total quantity of executed test cases       | 6           |
 +---------------------------------------------+-------------+
 | Total quantity of not executed test cases   | 1           |
 +---------------------------------------------+-------------+

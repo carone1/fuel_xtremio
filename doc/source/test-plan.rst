@@ -3,7 +3,7 @@
 Test Plan
 =========
 
-**For XtremIO Fuel Plugin 3.0.0 & Mirantis OpenStack 9.0**
+**For XtremIO Fuel Plugin 3.0-3.0.2-1 & Mirantis OpenStack 9.0**
 
 .. image:: images/emc-logo.png
 
@@ -18,6 +18,10 @@ Revision history
 | 0.1           | 07.09.2016          | Eric Caron             | Initial version.   |
 |               |                     |                        |                    |
 |               |                     | (eric.caron@emc.com)   |                    |
++---------------+---------------------+------------------------+--------------------+
+| 0.2           | 15.09.2016          | Eric Caron             | Integrated feedback|
+|               |                     |                        | from Mirantis      |
+|               |                     | (eric.caron@dell.com)  |                    |
 +---------------+---------------------+------------------------+--------------------+
 
 **XtremIO Plugin**
@@ -197,11 +201,11 @@ How to do checks with the XtremIO Storage Management application:
 Product compatibility matrix
 ----------------------------
 
-+--------------------------+---------------------------+----------------------------+-------------------+
-| XtremIO Plugin version   | Compatible Fuel version   | OpenStack and OS Version   | XtremIO version   |
-+==========================+===========================+============================+===================+
-| 3.0-3.0.0-1              | 9.0                       | Mitaka on Ubuntu14.04      | 4.2 build 34      |
-+--------------------------+---------------------------+----------------------------+-------------------+
++--------------------------+----------------------------------+----------------------------+-------------------+
+| XtremIO Plugin version   | Compatible Fuel/Mirantis version | OpenStack and OS Version   | XtremIO version   |
++==========================+==================================+============================+===================+
+| 3.0-3.0.2-1              | 9.0                              | Mitaka on Ubuntu14.04      | 4.2 build 34      |
++--------------------------+----------------------------------+----------------------------+-------------------+
 
 System Testing
 --------------
