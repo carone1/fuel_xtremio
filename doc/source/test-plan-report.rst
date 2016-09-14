@@ -3,7 +3,7 @@
 Test Plan Report
 ================
 
-**For XtremIO Plugin 2.0.0 & Mirantis OpenStack 8.0**
+**For XtremIO Plugin 2.0-2.0.1-1 & Mirantis OpenStack 8.0**
 
 
 .. image:: images/emc-logo.png
@@ -28,7 +28,7 @@ Document Purpose
 ----------------
 
 This document provides test run results for *System testing* of
-*XtremIO* Fuel Plugin *2.0.0* on Mirantis OpenStack *8.0*.
+*XtremIO* Fuel Plugin *2.0-2.0.1-1* on Mirantis OpenStack *8.0*.
 
 Test environment
 ----------------
@@ -72,7 +72,7 @@ Plugin's RPM
 +------------------------------------+----------------------------------+
 | **Name**                           |  MD5 Checksum                    |
 +====================================+==================================+
-| emc_xtremio-2.0-2.0.1-1.noarch.rpm | 28a3fafcf35f7e3b9bf2ef6afdb90471 |
+| emc_xtremio-2.0-2.0.1-1.noarch.rpm | 0921b72f65e499c9cb24e0eb85cca2a6 |
 +------------------------------------+----------------------------------+
 
 Test Coverage and Metrics
