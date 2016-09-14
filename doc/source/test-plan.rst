@@ -3,7 +3,7 @@
 Test Plan
 =========
 
-**For XtremIO Fuel Plugin 2.0.0 & Mirantis OpenStack 8.0**
+**For XtremIO Fuel Plugin 2.0-2.0.1-1 & Mirantis OpenStack 8.0**
 
 .. image:: images/emc-logo.png
 
@@ -18,6 +18,10 @@ Revision history
 | 0.1           | 07.09.2016          | Eric Caron             | Initial version.   |
 |               |                     |                        |                    |
 |               |                     | (eric.caron@emc.com)   |                    |
++---------------+---------------------+------------------------+--------------------+
+| 0.2           | 14.09.2016          | Eric Caron             | Integrated feedback|
+|               |                     |                        | from Mirantis      |
+|               |                     | (eric.caron@dell.com)  |                    |
 +---------------+---------------------+------------------------+--------------------+
 
 **XtremIO Plugin**
@@ -147,6 +151,13 @@ Limitations
 
 There are following limitations in plugin functionality:
 
+The EMC XtremIO Fuel plugin only supports strorage nodes co-located
+with controller nodes.  Co-locating storage nodes with controller nodes
+has the advantage of offering high availability (HA) to all storage services.
+HA is definately an advantage from that point on view but storage nodes can
+not be deployed on their own.
+
+
 Test strategy
 -------------
 
@@ -193,7 +204,7 @@ Product compatibility matrix
 +--------------------------+---------------------------+----------------------------+-------------------+
 | XtremIO Plugin version   | Compatible Fuel version   | OpenStack and OS Version   | XtremIO version   |
 +==========================+===========================+============================+===================+
-| 2.0.0                    | 8.0                       | Liberty on Ubuntu14.04     | 4.2 build 34      |
+| 2.0-2.0.1-1              | 8.0                       | Liberty on Ubuntu14.04     | 4.2 build 34      |
 +--------------------------+---------------------------+----------------------------+-------------------+
 
 System Testing
@@ -213,7 +224,7 @@ Install plugin and deploy environment
 |                   |                                                                                  |
 |                   | Create environment with enabled XtremIO plugin in fuel UI                        |
 |                   |                                                                                  |
-|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings other           |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/Storage         |
 |                   |                                                                                  |
 |                   | Specify \`XMS username\` \`XMS password\` \`XMS IP\`                             |
 |                   |                                                                                  |
@@ -252,8 +263,67 @@ Install plugin and deploy environment
 |                   |                                                                                  |
 |                   | Volume and instance are created and deleted successfully via Horizon.            |
 |                   |                                                                                  |
-|                   | OSTF are passed. Tests with launch of instances should be excluded because       |
-|                   | they require special flavor.                                                     |
+|                   | OSTF are passed.                                                                 |
+|                   |                                                                                  |
++-------------------+----------------------------------------------------------------------------------+
+
+Install plugin, create local mirror and deploy environment
+----------------------------------------------------------
+
++-------------------+----------------------------------------------------------------------------------+
+| Test Case ID      | create\_mirror\_deploy\_env                                                      |
++===================+==================================================================================+
+| Steps             | Upload plugin to the master fuel node                                            |
+|                   |                                                                                  |
+|                   | Install plugin                                                                   |
+|                   |                                                                                  |
+|                   | Ensure that plugin is installed successfully using cli                           |
+|                   |                                                                                  |
+|                   | Create Local Mirror Repository on Fuel master node                               |
+|                   |                                                                                  |
+|                   | Create environment with enabled XtremIO plugin in fuel UI                        |
+|                   |                                                                                  |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/Storage         |
+|                   |                                                                                  |
+|                   | Specify \`XMS username\` \`XMS password\` \`XMS IP\`                             |
+|                   |                                                                                  |
+|                   | Specify \`XtremIO Cluster Name\` if XMS manages multiple clusters                |
+|                   |                                                                                  |
+|                   | Add 3 node with Controller and Cinder role                                       |
+|                   |                                                                                  |
+|                   | Add 1 node with Compute role                                                     |
+|                   |                                                                                  |
+|                   | Apply network settings                                                           |
+|                   |                                                                                  |
+|                   | IP addresses and assigning networks to interfaces depending on                   |
+|                   | actual network environment of test lab                                           |
+|                   |                                                                                  |
+|                   | Run network verification                                                         |
+|                   |                                                                                  |
+|                   | Deploy the cluster                                                               |
+|                   |                                                                                  |
+|                   | Login to Horizon with the admin user when the OpenStack deployment is finished   |
+|                   |                                                                                  |
+|                   | Create volume using \`TestVM\` image and empty 1GB volume                        |
+|                   |                                                                                  |
+|                   | Create/Run instance using volume created with TestVM image                       |
+|                   |                                                                                  |
+|                   | Delete volumes and instances created above                                       |
+|                   |                                                                                  |
+|                   | Run OSTF tests                                                                   |
++-------------------+----------------------------------------------------------------------------------+
+| Expected Result   | Plugin is installed successfully, cluster is created, network verification.      |
+|                   |                                                                                  |
+|                   | XtremIO cluster has:                                                             |
+|                   |                                                                                  |
+|                   | One empty 1GB volume                                                             |
+|                   |                                                                                  |
+|                   | One volume matching TestVM image size                                            |
+|                   |                                                                                  |
+|                   | Volume and instance are created and deleted successfully via Horizon.            |
+|                   |                                                                                  |
+|                   | OSTF are passed.                                                                 |
+|                   |                                                                                  |
 +-------------------+----------------------------------------------------------------------------------+
 
 Modifying env with enabled plugin (removing/adding controller nodes)
@@ -282,7 +352,7 @@ Modifying env with enabled plugin (removing/adding controller nodes)
 |                   |                                                                                  |
 |                   | Create environment with enabled XtremIO plugin in fuel UI                        |
 |                   |                                                                                  |
-|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/other           |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/Storage         |
 |                   |                                                                                  |
 |                   | Specify \`XMS username\`  \`XMS password\` \`XMS IP\`                            |
 |                   |                                                                                  |
@@ -349,14 +419,14 @@ Modifying env with enabled plugin (removing/adding controller nodes)
 |                   |                                                                                  |
 |                   | Volume and instance are created and deleted successfully via Horizon.            |
 |                   |                                                                                  |
-|                   | OSTF are passed.                                                                 |
+|                   | OSTF passed successfully.                                                        |
 +-------------------+----------------------------------------------------------------------------------+
 
 Modifying env with enabled plugin (removing/adding compute node)
 ----------------------------------------------------------------
 
 +-------------------+----------------------------------------------------------------------------------+
-| Test Case ID      |     modify\_env\_with\_plugin\_remove\_add\_compute                              |
+| Test Case ID      | modify\_env\_with\_plugin\_remove\_add\_compute                              |
 +===================+==================================================================================+
 | Environment       | Fuel master node (w 50GB Disk, 2 Network interfaces [Mgmt, PXE] )                |
 |                   |                                                                                  |
@@ -364,7 +434,7 @@ Modifying env with enabled plugin (removing/adding compute node)
 |                   |                                                                                  |
 |                   | OpenStack Controller #2 node                                                     |
 |                   |                                                                                  |
-|                   | OpenStack Controller #3 node                                                     |
+|                   | OpenStack Conpute #1 node                                                        |
 |                   |                                                                                  |
 |                   | OpenStack Compute                                                                |
 |                   |                                                                                  |
@@ -378,15 +448,15 @@ Modifying env with enabled plugin (removing/adding compute node)
 |                   |                                                                                  |
 |                   | Create environment with enabled XtremIO plugin in fuel UI                        |
 |                   |                                                                                  |
-|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/other           |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/Storage         |
 |                   |                                                                                  |
 |                   | Specify \`XMS username\`  \`XMS password\`   \`XMS IP\`                          |
 |                   |                                                                                  |
 |                   | Specify \`XtremIO Cluster Name\` if XMS manages multiple clusters                |
 |                   |                                                                                  |
-|                   | Add 3 nodes with Controller & Cinder roles                                       |
+|                   | Add 2 nodes with Controller & Cinder roles                                       |
 |                   |                                                                                  |
-|                   | Add 1 node with Compute role                                                     |
+|                   | Add 2 nodes with Compute role                                                     |
 |                   |                                                                                  |
 |                   | Apply network settings                                                           |
 |                   |                                                                                  |
@@ -407,7 +477,7 @@ Modifying env with enabled plugin (removing/adding compute node)
 |                   |                                                                                  |
 |                   | Delete volumes and instances created above                                       |
 |                   |                                                                                  |
-|                   | Remove Compute node.                                                             |
+|                   | Remove Compute node #2.                                                          |
 |                   |                                                                                  |
 +-------------------+----------------------------------------------------------------------------------+
 | Steps Continue    | Re-deploy cluster and run OSTf tests                                             |
@@ -448,7 +518,7 @@ Modifying env with enabled plugin (removing/adding compute node)
 |                   |                                                                                  |
 |                   | Volume and instance are created and deleted successfully via Horizon.            |
 |                   |                                                                                  |
-|                   | OSTF are passed.                                                                 |
+|                   | OSTF passed succesfully.                                                         |
 +-------------------+----------------------------------------------------------------------------------+
 
 Uninstall of plugin with deployed environment
@@ -463,9 +533,7 @@ Uninstall of plugin with deployed environment
 |                   |                                                                                  |
 |                   | Run OSTF tests                                                                   |
 |                   |                                                                                  |
-|                   | Try to delete plugin and ensure that present in cli alert :                      |
-|                   | "400 Client Error: Bad Request"                                                  |
-|                   | "Can't delete plugin which is enabled for some environment."                     |
+|                   | Try to delete plugin and ensure that errors are present in cli                   |
 |                   |                                                                                  |
 |                   | Remove environment                                                               |
 |                   |                                                                                  |
@@ -477,7 +545,7 @@ Uninstall of plugin with deployed environment
 |                   |                                                                                  |
 |                   | Alert present when trying to delete plugin attached to environment.              |
 |                   |                                                                                  |
-|                   | Plugin is removed when environment is reset                                      |
+|                   | Plugin can be removed when environment is reset                                  |
 +-------------------+----------------------------------------------------------------------------------+
 
 Uninstall of plugin
