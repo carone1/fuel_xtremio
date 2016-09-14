@@ -31,9 +31,14 @@ class plugin_emc_xtremio::controller {
   $xtrem_io_section = 'XtremIO'
   $default_section  = 'DEFAULT'
 
-  # DEFAULT Section
-  cinder_config {
-    "${default_section}/enabled_backends":     value => $xtrem_io_section;
+  ini_subsetting {'enable_cinder_xtremio_backend':
+    ensure             => present,
+    section            => 'DEFAULT',
+    key_val_separator  => '=',
+    path               => '/etc/cinder/cinder.conf',
+    setting            => 'enabled_backends',
+    subsetting         => "${xtrem_io_section}",
+    subsetting_separator => ',',
   }
 
   # XtremIO Section

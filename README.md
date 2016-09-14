@@ -33,10 +33,15 @@ Installation Guide
 
 [Installation Guide] (doc/source/installation.rst)
 
+[Installation Video] (https://www.youtube.com/watch?v=EP_ZR2S70qc)
+
 Configuration Guide
 ===================
 
 [Configuration Guide] (doc/source/configuration.rst)
+
+[Configuration and Usage Video] (https://www.youtube.com/watch?v=OVAvPE-ugsM)
+
 
 User Guide
 ==========
@@ -44,7 +49,7 @@ User Guide
 [User Guide] (doc/source/guide.rst)
 
 Plugin Removal
-=============
+==============
 
 [Plugin Removal] (doc/source/removal.rst)
 
