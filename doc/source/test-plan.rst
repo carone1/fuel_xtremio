@@ -224,7 +224,8 @@ Install plugin and deploy environment
 |                   |                                                                                  |
 |                   | Create environment with enabled XtremIO plugin in fuel UI                        |
 |                   |                                                                                  |
-|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/Storage         |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/EMC XtremIO     |
+|                   | driver for Cinder                                                                |             
 |                   |                                                                                  |
 |                   | Specify \`XMS username\` \`XMS password\` \`XMS IP\`                             |
 |                   |                                                                                  |
@@ -283,7 +284,8 @@ Install plugin, create local mirror and deploy environment
 |                   |                                                                                  |
 |                   | Create environment with enabled XtremIO plugin in fuel UI                        |
 |                   |                                                                                  |
-|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/Storage         |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/EMC XtremIO     |
+|                   | driver for Cinder                                                                |
 |                   |                                                                                  |
 |                   | Specify \`XMS username\` \`XMS password\` \`XMS IP\`                             |
 |                   |                                                                                  |
@@ -352,7 +354,8 @@ Modifying env with enabled plugin (removing/adding controller nodes)
 |                   |                                                                                  |
 |                   | Create environment with enabled XtremIO plugin in fuel UI                        |
 |                   |                                                                                  |
-|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/Storage         |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/EMC XtremIO     |
+|                   | driver for Cinder                                                                |
 |                   |                                                                                  |
 |                   | Specify \`XMS username\`  \`XMS password\` \`XMS IP\`                            |
 |                   |                                                                                  |
@@ -448,7 +451,8 @@ Modifying env with enabled plugin (removing/adding compute node)
 |                   |                                                                                  |
 |                   | Create environment with enabled XtremIO plugin in fuel UI                        |
 |                   |                                                                                  |
-|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/Storage         |
+|                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/EMC XtremIO     |
+|                   | driver for Cinder                                                                |
 |                   |                                                                                  |
 |                   | Specify \`XMS username\`  \`XMS password\`   \`XMS IP\`                          |
 |                   |                                                                                  |
@@ -456,7 +460,7 @@ Modifying env with enabled plugin (removing/adding compute node)
 |                   |                                                                                  |
 |                   | Add 2 nodes with Controller & Cinder roles                                       |
 |                   |                                                                                  |
-|                   | Add 2 nodes with Compute role                                                     |
+|                   | Add 2 nodes with Compute role                                                    |
 |                   |                                                                                  |
 |                   | Apply network settings                                                           |
 |                   |                                                                                  |
