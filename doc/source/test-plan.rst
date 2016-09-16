@@ -330,7 +330,7 @@ Modifying env with enabled plugin (removing/adding controller nodes)
 --------------------------------------------------------------------
 
 +-------------------+----------------------------------------------------------------------------------+
-| Test Case ID      |     modify\_env\_with\_plugin\_remove\_add\_controller\_storage                  |
+| Test Case ID      | modify\_env\_with\_plugin\_remove\_add\_controller\_storage                      |
 +===================+==================================================================================+
 | Environment       | Fuel master node (w 50GB Disk, 2 Network interfaces [Mgmt, PXE] )                |
 |                   |                                                                                  |
@@ -426,7 +426,7 @@ Modifying env with enabled plugin (removing/adding compute node)
 ----------------------------------------------------------------
 
 +-------------------+----------------------------------------------------------------------------------+
-| Test Case ID      | modify\_env\_with\_plugin\_remove\_add\_compute                              |
+| Test Case ID      | modify\_env\_with\_plugin\_remove\_add\_compute                                  |
 +===================+==================================================================================+
 | Environment       | Fuel master node (w 50GB Disk, 2 Network interfaces [Mgmt, PXE] )                |
 |                   |                                                                                  |
@@ -456,7 +456,7 @@ Modifying env with enabled plugin (removing/adding compute node)
 |                   |                                                                                  |
 |                   | Add 2 nodes with Controller & Cinder roles                                       |
 |                   |                                                                                  |
-|                   | Add 2 nodes with Compute role                                                     |
+|                   | Add 2 nodes with Compute role                                                    |
 |                   |                                                                                  |
 |                   | Apply network settings                                                           |
 |                   |                                                                                  |
