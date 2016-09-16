@@ -426,7 +426,7 @@ Modifying env with enabled plugin (removing/adding compute node)
 ----------------------------------------------------------------
 
 +-------------------+----------------------------------------------------------------------------------+
-| Test Case ID      | modify\_env\_with\_plugin\_remove\_add\_compute                              |
+| Test Case ID      | modify\_env\_with\_plugin\_remove\_add\_compute                                  |
 +===================+==================================================================================+
 | Environment       | Fuel master node (w 50GB Disk, 2 Network interfaces [Mgmt, PXE] )                |
 |                   |                                                                                  |
@@ -456,7 +456,7 @@ Modifying env with enabled plugin (removing/adding compute node)
 |                   |                                                                                  |
 |                   | Add 2 nodes with Controller & Cinder roles                                       |
 |                   |                                                                                  |
-|                   | Add 2 nodes with Compute role                                                     |
+|                   | Add 2 nodes with Compute role                                                    |
 |                   |                                                                                  |
 |                   | Apply network settings                                                           |
 |                   |                                                                                  |
@@ -571,47 +571,47 @@ Upgrade/update
 Apply maintenance updates to deployed environment
 -------------------------------------------------
 
-+-------------------+----------------------------------------------------------------------------------+
-| Test Case ID      |     apply\_mu                                                                    |
-+===================+==================================================================================+
-| Steps             | Install plugin                                                                   |
-|                   |                                                                                  |
-|                   | Deploy environment with enabled plugin functionality                             |
-|                   |                                                                                  |
-|                   | Run OSTF tests                                                                   |
-|                   |                                                                                  |
-|                   | Once environment is deployed, apply maintenance updates following                |
-|                   | `*the instructions.*                                                             |
-|                   |  <https://docs.mirantis.com/openstack/fuel/fuel-9.0/                             |
-|                   |   release-notes.html#how-to-upgrade-the-product>`__                              |
-|                   |                                                                                  |
-|                   | Make sure all nodes are in ready state and no regression is observed.            |
-|                   |                                                                                  |
-|                   | Run OSTF tests                                                                   |
-+-------------------+----------------------------------------------------------------------------------+
-| Expected Result   | Plugin is installed successfully at the Fuel Master node                         |
-|                   | and the corresponding output appears in the CLI.                                 |
-|                   |                                                                                  |
-|                   | Cluster is created and network verification check is passed.                     |
-|                   |                                                                                  |
-|                   | Plugin is enabled and configured in the Fuel Web UI.                             |
-|                   |                                                                                  |
-|                   | OSTF tests (Health Checks) are passed.                                           |
-|                   |                                                                                  |
-|                   | Environment is deployed successfully.                                            |
-|                   |                                                                                  |
-|                   | Maintenance Updates do not affect running services                               |
-|                   | related to the plugin (e.g. the services aren't restarted).                      |
-|                   |                                                                                  |
-|                   | Cluster remains in the fully operational state after applying                    |
-|                   | Maintenance Updates.                                                             |
-+-------------------+----------------------------------------------------------------------------------+
++-----------------+------------------------------------------------------------------------------------+
+| Test Case ID    | apply\_mu                                                                          |
++=================+====================================================================================+
+| Steps           | Install plugin                                                                     |
+|                 |                                                                                    |
+|                 | Deploy environment with enabled plugin functionality                               |
+|                 |                                                                                    |
+|                 | Run OSTF tests                                                                     |
+|                 |                                                                                    |
+|                 | Once environment is deployed, apply maintenance updates following                  |
+|                 |                                                                                    |
+|                 | `<https://docs.mirantis.com/openstack/fuel/fuel-9.0/                               |
+|                 | release-notes.html#how-to-upgrade-the-product>`_                                   |
+|                 |                                                                                    |
+|                 | Make sure all nodes are in ready state and no regression is observed.              |
+|                 |                                                                                    |
+|                 | Run OSTF tests                                                                     |
++-----------------+------------------------------------------------------------------------------------+
+| Expected Result | Plugin is installed successfully at the Fuel Master node                           |
+|                 | and the corresponding output appears in the CLI.                                   |
+|                 |                                                                                    |
+|                 | Cluster is created and network verification check is passed.                       |
+|                 |                                                                                    |
+|                 | Plugin is enabled and configured in the Fuel Web UI.                               |
+|                 |                                                                                    |
+|                 | OSTF tests (Health Checks) are passed.                                             |
+|                 |                                                                                    |
+|                 | Environment is deployed successfully.                                              |
+|                 |                                                                                    |
+|                 | Maintenance Updates do not affect running services                                 |
+|                 | related to the plugin (e.g. the services aren't restarted).                        |
+|                 |                                                                                    |
+|                 | Cluster remains in the fully operational state after applying                      |
+|                 | Maintenance Updates.                                                               |
++-----------------+------------------------------------------------------------------------------------+
 
 Appendix
 --------
 
 +---------+--------------------------------------------------------------------------------------------+
-| **No**   | **Resource title**                                                                         |
+| **No**   | **Resource title**                                                                        |
 +=========+============================================================================================+
 | 1       | `XtremIO Fuel Plugin GitHub Repository <https://github.com/carone1/fuel-xtremio>`__        |
 +---------+--------------------------------------------------------------------------------------------+
