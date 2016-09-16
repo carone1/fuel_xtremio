@@ -225,7 +225,7 @@ Install plugin and deploy environment
 |                   | Create environment with enabled XtremIO plugin in fuel UI                        |
 |                   |                                                                                  |
 |                   | Select checkbox \`EMC XtremIO driver for Cinder\` under Settings/EMC XtremIO     |
-|                   | driver for Cinder                                                                |             
+|                   | driver for Cinder                                                                |
 |                   |                                                                                  |
 |                   | Specify \`XMS username\` \`XMS password\` \`XMS IP\`                             |
 |                   |                                                                                  |
@@ -429,7 +429,7 @@ Modifying env with enabled plugin (removing/adding compute node)
 ----------------------------------------------------------------
 
 +-------------------+----------------------------------------------------------------------------------+
-| Test Case ID      | modify\_env\_with\_plugin\_remove\_add\_compute                              |
+| Test Case ID      | modify\_env\_with\_plugin\_remove\_add\_compute                                  |
 +===================+==================================================================================+
 | Environment       | Fuel master node (w 50GB Disk, 2 Network interfaces [Mgmt, PXE] )                |
 |                   |                                                                                  |
@@ -522,7 +522,7 @@ Modifying env with enabled plugin (removing/adding compute node)
 |                   |                                                                                  |
 |                   | Volume and instance are created and deleted successfully via Horizon.            |
 |                   |                                                                                  |
-|                   | OSTF passed succesfully.                                                         |
+|                   | OSTF passed successfully.                                                        |
 +-------------------+----------------------------------------------------------------------------------+
 
 Uninstall of plugin with deployed environment
@@ -576,7 +576,7 @@ Apply maintenance updates to deployed environment
 -------------------------------------------------
 
 +-------------------+----------------------------------------------------------------------------------+
-| Test Case ID      |     apply\_mu                                                                    |
+| Test Case ID      | apply\_mu                                                                        |
 +===================+==================================================================================+
 | Steps             | Install plugin                                                                   |
 |                   |                                                                                  |
