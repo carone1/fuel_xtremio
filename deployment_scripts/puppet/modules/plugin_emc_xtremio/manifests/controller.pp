@@ -54,7 +54,6 @@ class plugin_emc_xtremio::controller {
     "${xtrem_io_section}/san_login":                        value => $plugin_settings['emc_username'];
     "${xtrem_io_section}/san_password":                     value => $plugin_settings['emc_password'];
     "${xtrem_io_section}/use_multipath_for_image_xfer":     value => 'True';
-    "${xtrem_io_section}/host":                             value => 'cinder';
     "${xtrem_io_section}/volume_driver":                    value => $xtremio_protocol;
     "${xtrem_io_section}/volume_backend_name":              value => $volume_type;
   }
