@@ -96,9 +96,6 @@ Plugin has three tasks. Each task per role. They are run in the following order:
 Cinder-volume service is installed on all Controller nodes and is managed by
 Pacemaker. It runs in active/passive mode where only one instance is active.
 Plugin installs a dedicated resource manager file (OCF) for this.
-All instances of cinder-volume have the same “host” parameter in cinder.conf
-file. This is required to achieve ability to manage all volumes in the
-environment by any cinder-volume instance.
 Plugin also installs multipathd daemon and iscsid daemon on all Controller
 and Compute nodes and puts customized configuration files for them.
 Finally, plugin enables multipath in Cinder and Nova config files.
